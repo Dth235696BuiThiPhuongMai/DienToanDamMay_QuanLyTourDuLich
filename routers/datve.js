@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const DatVe = require('../models/datve');
-const Tour = require('../models/Tour');
+const Tour = require('../models/tour');
 
 // 1. Route hiển thị danh sách (Admin thấy hết, Khách thấy của mình)
 router.get('/', async (req, res) => {
