@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Tour = require('../models/Tour');
+const Tour = require('../models/tour');
 const DanhGia = require('../models/danhgia');
 const DatVe = require('../models/DatVe');
 const nodemailer = require('nodemailer');
