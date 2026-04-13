@@ -1,0 +1,482 @@
+[
+  {
+    "TenTour": "Khám phá Hoa Kỳ: New York - Philadelphia - Washington D.C - Las Vegas - Los Angeles",
+    "MaTour": "TD0001",
+    "GiaTour": 89990000,
+    "NgayKhoiHanh": "2024-05-15",
+    "ThoiGian": "10 ngày 9 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour1.1.jpg",
+      "/images/tours/tour1.2.jpg",
+      "/images/tours/tour1.3.jpg"
+    ],
+    "MoTa": "<p>Hành trình vàng khám phá trọn vẹn <strong>nước Mỹ</strong> từ Bờ Đông sầm uất đến Bờ Tây sôi động. Chuyến đi 10 ngày 9 đêm đẳng cấp sẽ đưa bạn chạm tay vào 'Giấc mơ Mỹ' thực thụ.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>New York:</strong> Choáng ngợp trước Quảng trường Thời Đại (Times Square) rực rỡ ánh đèn, đi du thuyền ngắm Tượng Nữ Thần Tự Do kiêu hãnh và dạo bước trên phố Wall tài chính.</li><li><strong>Washington D.C & Philadelphia:</strong> Ngược dòng lịch sử tham quan Nhà Trắng, Điện Capitol và tháp chuông Tự Do.</li><li><strong>Las Vegas:</strong> Trải nghiệm kinh đô giải trí không ngủ, ngắm nhìn đài phun nước Bellagio lộng lẫy và thử vận may tại các casino lớn nhất thế giới.</li><li><strong>Los Angeles:</strong> Hóa thân thành ngôi sao Hollywood trên Đại lộ Danh Vọng, vui chơi thỏa thích tại Phim trường Universal Studios.</li></ul><p>Tận hưởng dịch vụ lưu trú 4-5 sao tiêu chuẩn quốc tế, các bữa ăn đa dạng từ Á sang Âu và sự chăm sóc tận tình của hướng dẫn viên chuyên nghiệp xuyên suốt hành trình.</p>",
+    "ChuDe": "Tour Quốc Tế",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Bờ Tây Hoa Kỳ: San Francisco - San Jose - Solvang - Los Angeles",
+    "MaTour": "TD0002",
+    "GiaTour": 65990000,
+    "NgayKhoiHanh": "2024-06-20",
+    "ThoiGian": "7 ngày 6 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 15,
+    "HinhAnh": [
+      "/images/tours/tour2.1.jpg",
+      "/images/tours/tour2.2.jpg",
+      "/images/tours/tour2.3.jpg"
+    ],
+    "MoTa": "<p>Khám phá vẻ đẹp phồn hoa, lãng mạn và ngập tràn nắng ấm của <strong>Bờ Tây Hoa Kỳ</strong>. Một cung đường tuyệt đẹp kết hợp giữa thiên nhiên, công nghệ và nghệ thuật thứ bảy.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>San Francisco:</strong> Check-in tại Cầu Cổng Vàng (Golden Gate Bridge) huyền thoại chìm trong sương mù, dạo bước qua đường hoa Lombard ngoằn ngoèo độc đáo nhất thế giới.</li><li><strong>San Jose & Thung lũng Silicon:</strong> Tham quan trung tâm công nghệ hàng đầu thế giới, nơi hội tụ những tập đoàn công nghệ khổng lồ.</li><li><strong>Làng Đan Mạch Solvang:</strong> Lạc bước vào ngôi làng châu Âu thu nhỏ vô cùng yên bình, thưởng thức bánh ngọt và cối xay gió đặc trưng.</li><li><strong>Los Angeles:</strong> Khám phá kinh đô điện ảnh Hollywood, thỏa sức vui chơi tại Universal Studios và mua sắm trên con phố Rodeo Drive sầm uất.</li></ul><p>Hành trình được thiết kế tinh tế với thời gian di chuyển hợp lý, mang đến cho du khách những giây phút thư giãn tuyệt vời nhất.</p>",
+    "ChuDe": "Tour Quốc Tế",
+    "TrangThai": "Sắp khởi hành"
+  },
+  {
+    "TenTour": "Liên tuyến Hoa Kỳ - Canada: Niagra Falls - Toronto - New York",
+    "MaTour": "TD0003",
+    "GiaTour": 125000000,
+    "NgayKhoiHanh": "2024-07-10",
+    "ThoiGian": "12 ngày 11 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 10,
+    "HinhAnh": [
+      "/images/tours/tour3.1.jpg",
+      "/images/tours/tour3.2.jpg",
+      "/images/tours/tour3.3.jpg",
+      "/images/tours/tour3.4.jpg"
+    ],
+    "MoTa": "<p>Chuyến đi liên tuyến đặc biệt kết hợp hai quốc gia hàng đầu Bắc Mỹ, mang đến trải nghiệm đối lập đầy thú vị giữa thiên nhiên vĩ đại và nhịp sống đô thị hiện đại bậc nhất toàn cầu.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Kỳ quan Thác Niagara:</strong> Trải nghiệm đi thuyền Maid of the Mist tiến sát vào lòng thác, cảm nhận sự hùng vĩ và bọt nước tung trắng xóa của một trong những thác nước lớn nhất thế giới.</li><li><strong>Toronto (Canada):</strong> Tham quan tháp CN Tower biểu tượng, dạo quanh hồ Ontario thơ mộng và khám phá khu phố cổ Distillery District đậm chất nghệ thuật.</li><li><strong>New York (Hoa Kỳ):</strong> Chìm đắm trong nhịp sống hối hả của 'Quả Táo Lớn', chiêm ngưỡng toàn cảnh thành phố từ đài quan sát Empire State và dạo bộ tại Công viên Trung tâm (Central Park).</li></ul><p>Tour VIP giới hạn số lượng khách (tối đa 10 người), đảm bảo chất lượng phục vụ cá nhân hóa cao cấp, bay hàng không 5 sao và thực đơn cao cấp với tôm hùm Canada trứ danh.</p>",
+    "ChuDe": "Tour Quốc Tế",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Khám phá Nhật Bản: Tokyo - Kyoto - Osaka - Núi Phú Sĩ",
+    "MaTour": "TD0004",
+    "GiaTour": 35990000,
+    "NgayKhoiHanh": "2024-05-20",
+    "ThoiGian": "6 ngày 5 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 25,
+    "HinhAnh": [
+      "/images/tours/tour4.1.jpg",
+      "/images/tours/tour4.2.jpg",
+      "/images/tours/tour4.3.jpg",
+      "/images/tours/tour4.4.jpg"
+    ],
+    "MoTa": "<p>Cung đường vàng <strong>Nhật Bản</strong> đưa du khách đắm chìm vào không gian văn hóa truyền thống đan xen cùng nhịp sống hiện đại bậc nhất Châu Á. Một hành trình chạm đến mọi giác quan.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Tokyo phồn hoa:</strong> Viếng thăm ngôi chùa cổ kính Asakusa Kannon, ngắm tháp Tokyo Skytree và tự do mua sắm tại khu phố điện tử Akihabara sầm uất.</li><li><strong>Biểu tượng Núi Phú Sĩ:</strong> Tham quan ngọn núi thiêng liêng, dạo quanh Làng cổ Oshino Hakkai thanh bình và trải nghiệm tắm suối nước nóng Onsen truyền thống giúp phục hồi sức khỏe.</li><li><strong>Kyoto hoài cổ:</strong> Lạc bước trong rừng trúc Arashiyama tĩnh lặng, chiêm ngưỡng Chùa Thanh Thủy (Kiyomizu-dera) và Chùa Gác Vàng (Kinkakuji) lấp lánh ánh vàng.</li><li><strong>Osaka năng động:</strong> Tham quan Lâu đài Osaka uy nghi và thỏa sức thưởng thức ẩm thực đường phố tuyệt hảo tại khu Dotonbori.</li></ul><p>Đặc biệt, du khách sẽ được thưởng thức bữa tiệc bò Kobe thượng hạng, mặc trang phục Yukata truyền thống và tham gia trà đạo Nhật Bản.</p>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Lãng mạn Hàn Quốc: Seoul - Nami - Everland",
+    "MaTour": "TD0005",
+    "GiaTour": 18990000,
+    "NgayKhoiHanh": "2024-06-05",
+    "ThoiGian": "5 ngày 4 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour5.1.jpg",
+      "/images/tours/tour5.2.jpg",
+      "/images/tours/tour5.3.jpg",
+      "/images/tours/tour5.4.jpg"
+    ],
+    "MoTa": "<p>Tận hưởng những khoảnh khắc lãng mạn như bước ra từ những bộ phim truyền hình nổi tiếng tại <strong>xứ sở Kim Chi</strong>. Hành trình hoàn hảo cho các cặp đôi và gia đình yêu thích văn hóa Hàn Quốc.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Đảo Nami:</strong> Thả hồn vào khung cảnh thiên nhiên thơ mộng với những hàng cây thủy sam thẳng tắp, nơi lưu giữ ký ức của bộ phim 'Bản tình ca mùa đông'.</li><li><strong>Cung điện Gyeongbokgung:</strong> Mặc trang phục Hanbok truyền thống, dạo bước qua các gian điện cổ kính và tìm hiểu về lịch sử triều đại Joseon.</li><li><strong>Công viên giải trí Everland:</strong> Thỏa sức vui chơi tại top 10 công viên giải trí lớn nhất thế giới, khám phá vườn thú Safari và các trò chơi cảm giác mạnh đỉnh cao.</li><li><strong>Tháp N Seoul (Namsan):</strong> Ngắm nhìn toàn cảnh thủ đô Seoul từ trên cao và tự tay móc những chiếc ổ khóa tình yêu đầy ý nghĩa.</li></ul><p>Du khách còn được thỏa sức mua sắm mỹ phẩm, nhân sâm chính hiệu và thưởng thức ẩm thực đặc sắc: Gà hầm sâm, thịt nướng BBQ, lẩu nấm...</p>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Sắp khởi hành"
+  },
+  {
+    "TenTour": "Thiên đường biển Bali - Indonesia",
+    "MaTour": "TD0006",
+    "GiaTour": 12500000,
+    "NgayKhoiHanh": "2024-06-15",
+    "ThoiGian": "4 ngày 3 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 15,
+    "HinhAnh": [
+      "/images/tours/tour6.1.jpg",
+      "/images/tours/tour6.2.jpg",
+      "/images/tours/tour6.3.jpg",
+      "/images/tours/tour6.4.jpg"
+    ],
+    "MoTa": "<p>Đến với <strong>Bali - Hòn đảo của các vị thần</strong>, nơi mang lại cho bạn những bức ảnh 'sống ảo' để đời và không gian nghỉ dưỡng tuyệt hảo giữa thiên nhiên hoang sơ, hùng vĩ.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Đền cổng trời Lempuyang:</strong> Nơi giao thoa giữa đất và trời, điểm check-in mang tính biểu tượng nhất của Bali với view nhìn thẳng ra ngọn núi lửa Agung thiêng liêng.</li><li><strong>Xích đu Swing Bali:</strong> Trải nghiệm cảm giác bay lượn trên không trung, băng qua những thửa ruộng bậc thang xanh mướt ngút ngàn.</li><li><strong>Đền Tanah Lot:</strong> Ngôi đền cổ kính nằm chênh vênh trên tảng đá giữa biển khơi, nơi ngắm hoàng hôn đẹp nhất Châu Á.</li><li><strong>Bãi biển Jimbaran:</strong> Thưởng thức bữa tối BBQ hải sản tươi ngon ngay trên bãi cát mịn, dưới ánh nến lãng mạn cùng tiếng sóng vỗ rì rào.</li></ul><p>Lịch trình tự do, thoải mái, lưu trú tại Resort 4 sao có hồ bơi cực chill, mang đến kỳ nghỉ nhiệt đới đúng nghĩa.</p>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Liên tuyến Singapore - Malaysia",
+    "MaTour": "TD0007",
+    "GiaTour": 11990000,
+    "NgayKhoiHanh": "2024-05-25",
+    "ThoiGian": "5 ngày 4 đêm",
+    "NoiKhoiHanh": "Đà Nẵng",
+    "SoCho": 30,
+    "HinhAnh": [
+      "/images/tours/tour7.1.jpg",
+      "/images/tours/tour7.2.jpg",
+      "/images/tours/tour7.3.jpg",
+      "/images/tours/tour7.4.jpg",
+      "/images/tours/tour7.5.jpg",
+      "/images/tours/tour7.6.jpg",
+      "/images/tours/tour7.7.jpg",
+      "/images/tours/tour7.8.jpg"
+    ],
+    "MoTa": "<p>Hành trình 'Một chuyến đi - Hai quốc gia' khám phá những thành phố hiện đại và nền văn hóa đa dạng nhất khu vực Đông Nam Á.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Singapore Đảo Quốc Sư Tử:</strong> Khám phá khu vườn năng lượng Supertree Grove tại Gardens by the Bay, check-in cùng tượng Sư Tử Biển (Merlion) và tự do mua sắm trên đường Orchard.</li><li><strong>Đảo Sentosa (Singapore):</strong> Khám phá thế giới giải trí muôn màu, tham quan thủy cung S.E.A Aquarium lớn nhất nhì thế giới.</li><li><strong>Kuala Lumpur (Malaysia):</strong> Chiêm ngưỡng biểu tượng Tháp đôi Petronas, tham quan Cung điện Hoàng Gia và Quảng trường Độc Lập cổ kính.</li><li><strong>Cao nguyên Genting (Malaysia):</strong> Trải nghiệm hệ thống cáp treo xuyên mây lên 'thành phố giải trí trên mây', thỏa sức thử vận may tại các casino sôi động.</li></ul><p>Tour du lịch siêu tiết kiệm nhưng trải nghiệm tối đa, di chuyển bằng xe du lịch đời mới xuyên biên giới, rất phù hợp cho gia đình và nhóm bạn.</p>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Phượng Hoàng Cổ Trấn - Trương Gia Giới (Trung Quốc)",
+    "MaTour": "TD0008",
+    "GiaTour": 16990000,
+    "NgayKhoiHanh": "2024-07-10",
+    "ThoiGian": "6 ngày 5 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour8.1.jpg",
+      "/images/tours/tour8.2.jpg",
+      "/images/tours/tour8.3.jpg",
+      "/images/tours/tour8.4.jpg",
+      "/images/tours/tour8.5.jpg"
+    ],
+    "MoTa": "<p>Hành trình 'Xuyên không về cổ đại' đưa bạn bước vào những bức tranh thủy mặc có thật ngoài đời, khám phá vẻ đẹp siêu thực của cảnh sắc thiên nhiên Trung Hoa.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Phượng Hoàng Cổ Trấn:</strong> Dạo bước trên những con đường lát đá xanh hàng trăm năm tuổi, ngắm nhìn những dãy nhà Điếu Cước Lâu bằng gỗ soi bóng xuống dòng Đà Giang thơ mộng. Trải nghiệm ngồi thuyền ngắm cảnh đêm lung linh huyền ảo.</li><li><strong>Trương Gia Giới (Vũ Lăng Nguyên):</strong> Lạc vào thế giới Avatar với cột đá Hallelujah chọc trời, đi thang máy Bách Long (Bailong Elevator) bám sát vách núi vĩ đại.</li><li><strong>Thiên Môn Sơn:</strong> Thử thách lòng can đảm khi rảo bước trên Hành Lang Kính (Sạn Đạo Kính) trong suốt ven vách núi ở độ cao chóng mặt, và vượt qua 999 bậc thang để đến với 'Cổng Trời'.</li></ul><p>Thưởng thức các món ăn đậm đà bản sắc địa phương vùng Hồ Nam và xem show diễn nghệ thuật thực cảnh hoành tráng.</p>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Xa hoa Dubai - Abu Dhabi (UAE)",
+    "MaTour": "TD0009",
+    "GiaTour": 32990000,
+    "NgayKhoiHanh": "2024-08-05",
+    "ThoiGian": "5 ngày 4 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour9.1.jpg",
+      "/images/tours/tour9.2.jpg",
+      "/images/tours/tour9.3.jpg",
+      "/images/tours/tour9.4.jpg"
+    ],
+    "MoTa": "<p>Khám phá vùng đất của những kỷ lục thế giới, nơi biến những điều không thể thành có thể. Hành trình đẳng cấp trải nghiệm sự giàu có xa hoa bậc nhất của thế giới Ả Rập.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Dubai hiện đại:</strong> Chinh phục tòa tháp Burj Khalifa cao nhất thế giới, chiêm ngưỡng khách sạn cánh buồm 7 sao Burj Al Arab và mua sắm tại Dubai Mall.</li><li><strong>Đảo Cọ Palm Jumeirah:</strong> Đi tàu điện trên không ngắm nhìn toàn cảnh hòn đảo nhân tạo hình cây cọ vĩ đại - kỳ quan thứ 8 của thế giới hiện đại.</li><li><strong>Đua xe Safari sa mạc:</strong> Trải nghiệm cảm giác mạnh trên những chiếc Land Cruiser băng qua các đồn cát vàng rực rỡ. Cưỡi lạc đà, vẽ henna và ăn tối BBQ dưới bầu trời đầy sao cùng vũ điệu múa bụng Belly Dance Ả Rập.</li><li><strong>Thủ đô Abu Dhabi:</strong> Viếng thăm Thánh đường Hồi giáo Sheikh Zayed lộng lẫy bằng cẩm thạch trắng và vàng ròng.</li></ul><p>Tận hưởng dịch vụ hoàng gia và khách sạn sang trọng tại trung tâm vương quốc.</p>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Cổ tích Châu Âu: Pháp - Thụy Sĩ - Ý",
+    "MaTour": "TD0010",
+    "GiaTour": 75990000,
+    "NgayKhoiHanh": "2024-09-15",
+    "ThoiGian": "11 ngày 10 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour10.1.jpg",
+      "/images/tours/tour10.2.jpg",
+      "/images/tours/tour10.3.jpg",
+      "/images/tours/tour10.4.jpg",
+      "/images/tours/tour10.5.jpg",
+      "/images/tours/tour10.6.jpg",
+      "/images/tours/tour10.7.jpg",
+      "/images/tours/tour10.8.jpg",
+      "/images/tours/tour10.9.jpg",
+      "/images/tours/tour10.10.jpg"
+    ],
+    "MoTa": "<p>Cung đường kinh điển nhất khi nhắc đến du lịch <strong>Châu Âu</strong>, đưa bạn đi qua 3 quốc gia mang đậm dấu ấn nghệ thuật, thiên nhiên vĩ đại và lịch sử hào hùng.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Pháp (Paris lãng mạn):</strong> Ngắm nhìn Tháp Eiffel tráng lệ, dạo thuyền trên sông Seine thơ mộng, tham quan Bảo tàng Louvre và Khải Hoàn Môn. Thỏa sức mua sắm hàng hiệu tại Galeries Lafayette.</li><li><strong>Thụy Sĩ (Đỉnh Titlis hùng vĩ):</strong> Trải nghiệm cáp treo xoay 360 độ duy nhất trên thế giới để lên đỉnh núi tuyết vĩnh cửu Titlis. Dừng chân tại thành phố Lucerne yên bình với cây cầu gỗ Chapel cổ kính.</li><li><strong>Ý (Venice & Rome):</strong> Ngồi thuyền Gondola len lỏi qua các con kênh nhỏ lãng mạn tại Venice. Đặt chân đến Rome - bảo tàng ngoài trời vĩ đại, chiêm ngưỡng Đấu trường La Mã Colosseum và Đài phun nước Trevi.</li><li><strong>Vatican:</strong> Viếng thăm quốc gia nhỏ nhất thế giới nhưng sở hữu Vương cung thánh đường St. Peter lộng lẫy bậc nhất.</li></ul><p>Hành trình bao gồm vé máy bay quốc tế, Visa Schengen, khách sạn 4 sao chuẩn Châu Âu và ẩm thực phong phú đặc trưng của từng quốc gia.</p>",
+    "ChuDe": "Tour Châu Âu",
+    "TrangThai": "Sắp khởi hành"
+  },
+  {
+    "TenTour": "Hành trình sương mù: Vương quốc Anh - Scotland",
+    "MaTour": "TD0011",
+    "GiaTour": 82000000,
+    "NgayKhoiHanh": "2024-08-20",
+    "ThoiGian": "9 ngày 8 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 15,
+    "HinhAnh": [
+      "/images/tours/tour11.1.jpg",
+      "/images/tours/tour11.2.jpg",
+      "/images/tours/tour11.3.jpg",
+      "/images/tours/tour11.4.jpg",
+      "/images/tours/tour11.5.jpg",
+      "/images/tours/tour11.6.jpg",
+      "/images/tours/tour11.7.jpg"
+    ],
+    "MoTa": "<p>Đến với xứ sở sương mù để chiêm ngưỡng vẻ đẹp pha trộn hoàn hảo giữa nét cổ kính hoàng gia và sự năng động của thời đại mới. Hành trình đưa bạn qua những cung đường đẹp nhất của Vương quốc Anh và Scotland.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>London kiêu hãnh:</strong> Check-in cùng Tháp đồng hồ Big Ben, ngắm Cầu Tháp London (Tower Bridge) bắc qua dòng sông Thames thơ mộng và chứng kiến nghi thức đổi gác tại Cung điện Buckingham.</li><li><strong>Cụm đá Stonehenge:</strong> Khám phá vòng tròn đá bí ẩn thời tiền sử, một trong những kỳ quan huyền bí nhất thế giới chưa có lời giải đáp.</li><li><strong>Edinburgh (Scotland):</strong> Lạc bước vào thành phố đậm chất cổ tích với Lâu đài Edinburgh sừng sững trên nền đá núi lửa, thưởng thức giai điệu kèn túi truyền thống.</li><li><strong>Hồ Loch Ness:</strong> Du thuyền trên mặt hồ tĩnh lặng, nghe những giai thoại ly kỳ về quái vật hồ Loch Ness (Nessie).</li></ul><p>Trải nghiệm mua sắm đẳng cấp tại phố Oxford và thưởng thức trà chiều Anh Quốc đúng điệu.</p>",
+    "ChuDe": "Tour Châu Âu",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Sắc màu Đông Âu: Áo - Séc - Hungary - Slovakia",
+    "MaTour": "TD0012",
+    "GiaTour": 68900000,
+    "NgayKhoiHanh": "2024-10-10",
+    "ThoiGian": "10 ngày 9 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour12.1.jpg",
+      "/images/tours/tour12.2.jpg",
+      "/images/tours/tour12.3.jpg",
+      "/images/tours/tour12.4.jpg"
+    ],
+    "MoTa": "<p>Hành trình men theo dòng sông Danube xanh thẳm, đưa bạn khám phá 4 viên ngọc lấp lánh của vùng Đông Âu, nơi thời gian như ngừng trôi bên những lâu đài tráng lệ và quảng trường rực rỡ.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Vienna (Áo):</strong> Đắm chìm trong thủ đô âm nhạc thế giới, tham quan Cung điện Schönbrunn mùa hè lộng lẫy và thưởng thức cà phê Melange trứ danh.</li><li><strong>Praha (Cộng hòa Séc):</strong> 'Thành phố trăm tháp' với kiến trúc Gothic tuyệt mỹ. Dạo bước trên cầu tình yêu Charles rêu phong và ngắm tháp đồng hồ Thiên Văn Orloj đánh chuông.</li><li><strong>Budapest (Hungary):</strong> Mệnh danh là 'Paris của phương Đông', trải nghiệm du thuyền trên sông Danube ngắm tòa nhà Quốc hội rực sáng trong đêm và thư giãn tại bể tắm nước khoáng Széchenyi.</li><li><strong>Bratislava (Slovakia):</strong> Tham quan khu phố cổ bình yên, chạm tay vào những bức tượng đồng độc đáo rải rác khắp các góc phố.</li></ul>",
+    "ChuDe": "Tour Châu Âu",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Bắc Âu Huyền Thoại: Na Uy - Thụy Điển - Đan Mạch",
+    "MaTour": "TD0013",
+    "GiaTour": 95000000,
+    "NgayKhoiHanh": "2024-07-25",
+    "ThoiGian": "12 ngày 11 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 15,
+    "HinhAnh": [
+      "/images/tours/tour13.1.jpg",
+      "/images/tours/tour13.2.jpg",
+      "/images/tours/tour13.3.jpg",
+      "/images/tours/tour13.4.jpg",
+      "/images/tours/tour13.5.jpg",
+      "/images/tours/tour13.6.jpg",
+      "/images/tours/tour13.7.jpg",
+      "/images/tours/tour13.8.jpg"
+    ],
+    "MoTa": "<p>Vươn mình đến cực Bắc của địa cầu, nơi thiên nhiên vĩ đại giao hòa cùng lối sống hạnh phúc nhất thế giới. Cung đường Scandinavia sẽ là kỷ niệm không thể nào quên trong đời.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Na Uy:</strong> Đi du thuyền khám phá các vịnh hẹp Fjord di sản thế giới với hai bên vách đá dựng đứng tung bọt thác trắng xóa. Trải nghiệm săn Bắc Cực Quang (Aurora) kỳ ảo múa lượn trên bầu trời đêm.</li><li><strong>Thụy Điển:</strong> Tham quan thủ đô Stockholm được xây dựng trên 14 hòn đảo, khám phá Bảo tàng tàu chiến Vasa vĩ đại thế kỷ 17 được trục vớt nguyên vẹn từ đáy biển.</li><li><strong>Đan Mạch:</strong> Thăm quê hương của nhà văn Andersen, chụp ảnh cùng bức tượng Nàng Tiên Cá bé nhỏ ven biển Copenhagen và chiêm ngưỡng cung điện hoàng gia Amalienborg.</li></ul><p>Hành trình cao cấp, tận hưởng hải sản tươi sống Bắc Âu như cá hồi Na Uy, tôm Bắc Cực trong suốt chuyến đi.</p>",
+    "ChuDe": "Tour Châu Âu",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Say đắm Santorini - Hy Lạp",
+    "MaTour": "TD0014",
+    "GiaTour": 55900000,
+    "NgayKhoiHanh": "2024-06-30",
+    "ThoiGian": "7 ngày 6 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour14.1.jpg",
+      "/images/tours/tour14.2.jpg",
+      "/images/tours/tour14.3.jpg",
+      "/images/tours/tour14.4.jpg",
+      "/images/tours/tour14.5.jpg"
+    ],
+    "MoTa": "<p>Chạm tay vào 'thiên đường hạ giới' nơi biển trời hòa quyện trong hai sắc xanh - trắng đặc trưng. Đây là chuyến đi trong mơ dành cho những tâm hồn lãng mạn yêu thích sự tự do.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Đảo Santorini:</strong> Dạo bước qua những ngôi nhà hang động rực rỡ sắc hoa giấy, thả hồn tại làng Oia để đón khoảnh khắc hoàng hôn đẹp nhất thế giới khi mặt trời lặn dần xuống vùng biển Aegean lấp lánh.</li><li><strong>Thủ đô Athens:</strong> Ngược dòng thời gian trở về cái nôi của nền văn minh phương Tây, khám phá quần thể kiến trúc cổ đại Acropolis vĩ đại và đền thờ nữ thần Athena (Parthenon).</li><li><strong>Biển đỏ & Biển đen:</strong> Tự do tắm biển tại những bãi cát độc đáo hình thành từ tro bụi núi lửa hàng ngàn năm trước.</li></ul><p>Thưởng thức rượu vang hảo hạng nhâm nhi cùng phô mai Feta và dầu oliu nguyên chất đúng điệu Địa Trung Hải.</p>",
+    "ChuDe": "Tour Châu Âu",
+    "TrangThai": "Sắp khởi hành"
+  },
+  {
+    "TenTour": "Đam mê Nam Mỹ: Brazil - Argentina",
+    "MaTour": "TD0015",
+    "GiaTour": 155000000,
+    "NgayKhoiHanh": "2024-11-15",
+    "ThoiGian": "14 ngày 13 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 15,
+    "HinhAnh": [
+      "/images/tours/tour15.1.jpg",
+      "/images/tours/tour15.2.jpg",
+      "/images/tours/tour15.3.jpg",
+      "/images/tours/tour15.4.jpg"
+    ],
+    "MoTa": "<p>Hành trình đến với lục địa Nam Mỹ đầy máu lửa và đam mê, nơi hội tụ những kỳ quan thiên nhiên ngoạn mục và những vũ điệu đường phố cuồng nhiệt không bao giờ dứt.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Rio de Janeiro (Brazil):</strong> Chinh phục đỉnh núi Corcovado để chiêm ngưỡng Tượng Chúa Cứu Thế dang tay ôm trọn thành phố - một trong 7 kỳ quan thế giới mới. Thư giãn tại bãi biển Copacabana sầm uất.</li><li><strong>Thác Iguazu (Biên giới Brazil & Argentina):</strong> Choáng ngợp trước hệ thống thác nước vĩ đại nhất hành tinh, dạo bộ trên những chiếc cầu gỗ băng qua rừng nhiệt đới ngắm nhìn 'Họng Quỷ' gầm thét.</li><li><strong>Buenos Aires (Argentina):</strong> Trải nghiệm nhịp sống của 'Paris Nam Mỹ', thưởng thức thịt bò nướng Asado tuyệt hảo và đắm chìm trong những đêm khiêu vũ Tango đầy quyến rũ.</li></ul>",
+    "ChuDe": "Tour Châu Mỹ",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Mùa thu lá đỏ Canada: Vancouver - Montreal",
+    "MaTour": "TD0016",
+    "GiaTour": 89000000,
+    "NgayKhoiHanh": "2024-10-05",
+    "ThoiGian": "10 ngày 9 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour16.1.jpg",
+      "/images/tours/tour16.2.jpg",
+      "/images/tours/tour16.3.jpg",
+      "/images/tours/tour16.4.jpg"
+    ],
+    "MoTa": "<p>Cùng ngắm nhìn bức tranh thiên nhiên tuyệt mỹ nhất của xứ sở Bắc Mỹ vào thu. Khi cả đất trời chuyển mình sang sắc vàng, cam, đỏ rực rỡ của những rừng phong bạt ngàn.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Vancouver:</strong> Dạo bước trong Công viên Stanley ngập tràn sắc thu, trải nghiệm đi bộ trên cây cầu treo Capilano lơ lửng giữa rừng nguyên sinh tuyệt đẹp.</li><li><strong>Montreal & Quebec:</strong> Lạc vào không gian đậm chất Pháp lãng mạn giữa lòng Canada, chiêm ngưỡng kiến trúc cổ kính của lâu đài Frontenac và thưởng thức si-rô phong (maple syrup) nguyên chất.</li><li><strong>Thác Niagara (Bờ Canada):</strong> Góc nhìn đẹp nhất và hùng vĩ nhất của siêu thác Niagara, trải nghiệm cảm giác rung chuyển đất trời dưới sức mạnh của dòng nước đổ từ trên cao.</li></ul>",
+    "ChuDe": "Tour Châu Mỹ",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Sức sống hoang dã Nam Phi",
+    "MaTour": "TD0017",
+    "GiaTour": 62900000,
+    "NgayKhoiHanh": "2024-08-15",
+    "ThoiGian": "8 ngày 7 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour17.1.jpg",
+      "/images/tours/tour17.2.jpg",
+      "/images/tours/tour17.3.jpg",
+      "/images/tours/tour17.4.jpg"
+    ],
+    "MoTa": "<p>Hành trình khám phá lục địa đen đầy lôi cuốn, nơi bạn có thể chạm đến sự hoang dã tột cùng của tự nhiên nhưng vẫn tận hưởng những dịch vụ du lịch xa xỉ bậc nhất.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Mũi Hảo Vọng (Cape of Good Hope):</strong> Đứng tại điểm tận cùng của lục địa Châu Phi, nơi giao thoa giữa hai đại dương lớn là Ấn Độ Dương và Đại Tây Dương.</li><li><strong>Cape Town:</strong> Chinh phục Núi Bàn (Table Mountain) bằng cáp treo xoay 360 độ ngắm toàn cảnh thành phố, thăm bãi biển Boulders để chơi đùa cùng hàng ngàn chú chim cánh cụt Châu Phi đáng yêu.</li><li><strong>Vườn quốc gia Kruger:</strong> Lên xe Jeep mui trần chuyên dụng tham gia Safari săn ảnh 'Big Five' (5 ông lớn động vật hoang dã: Sư tử, Báo hoa mai, Tê giác, Voi, Trâu rừng) ngay trong môi trường sống tự nhiên của chúng.</li></ul>",
+    "ChuDe": "Tour Châu Phi",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Bí ẩn Kim Tự Tháp Ai Cập",
+    "MaTour": "TD0018",
+    "GiaTour": 58900000,
+    "NgayKhoiHanh": "2024-09-20",
+    "ThoiGian": "9 ngày 8 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour18.1.jpg",
+      "/images/tours/tour18.2.jpg",
+      "/images/tours/tour18.3.jpg",
+      "/images/tours/tour18.4.jpg"
+    ],
+    "MoTa": "<p>Ngược dòng thời gian trở về quá khứ hơn 4000 năm trước để giải mã những bí ẩn vĩ đại của nền văn minh cổ đại dọc theo dòng sông Nile huyền thoại.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Cairo & Giza:</strong> Tận mắt chiêm ngưỡng Quần thể Kim tự tháp Giza - kỳ quan thế giới cổ đại duy nhất còn tồn tại và Tượng Nhân Sư (Sphinx) khổng lồ canh gác lăng mộ các Pharaoh.</li><li><strong>Bảo tàng Ai Cập:</strong> Khám phá kho báu vô giá của vua Tutankhamun với chiếc mặt nạ vàng ròng nguyên khối và hàng ngàn cổ vật kỳ bí.</li><li><strong>Du thuyền sông Nile:</strong> Trải nghiệm nghỉ dưỡng trên du thuyền 5 sao dọc dòng sông dài nhất thế giới, ghé thăm các đền đài vĩ đại như đền Karnak, đền Luxor và Thung lũng các vị Vua (Valley of the Kings).</li></ul>",
+    "ChuDe": "Tour Châu Phi",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Trải nghiệm Sydney - Melbourne (Úc)",
+    "MaTour": "TD0019",
+    "GiaTour": 49900000,
+    "NgayKhoiHanh": "2024-07-15",
+    "ThoiGian": "7 ngày 6 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 25,
+    "HinhAnh": [
+      "/images/tours/tour19.1.jpg",
+      "/images/tours/tour19.2.jpg",
+      "/images/tours/tour19.3.jpg",
+      "/images/tours/tour19.4.jpg"
+    ],
+    "MoTa": "<p>Hành trình khám phá xứ sở chuột túi thân thiện, không khí trong lành và cảnh quan tuyệt mỹ. Trải nghiệm hai thành phố đáng sống bậc nhất thế giới là Sydney và Melbourne.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Sydney:</strong> Chụp ảnh cùng biểu tượng Nhà hát Con Sò (Sydney Opera House) và Cầu Cảng Sydney. Tự do tắm nắng tại bãi biển Bondi nổi tiếng thế giới.</li><li><strong>Công viên hoang dã:</strong> Tự tay cho những chú Kangaroo ăn, ngắm nhìn gấu Koala lười biếng ôm cây bạch đàn và xem show xén lông cừu đặc sắc.</li><li><strong>Melbourne:</strong> Dạo bước trên những con phố nghệ thuật đầy hình vẽ Graffiti, tham gia chuyến tàu hơi nước cổ Puffing Billy xuyên qua rừng nguyên sinh Dandenong.</li><li><strong>Thung lũng Yarra:</strong> Thưởng thức các loại rượu vang Úc thượng hạng ngay tại các trang trại nho bạt ngàn mát mắt.</li></ul>",
+    "ChuDe": "Tour Châu Úc",
+    "TrangThai": "Sắp khởi hành"
+  },
+  {
+    "TenTour": "New Zealand: Đảo Bắc - Đảo Nam",
+    "MaTour": "TD0020",
+    "GiaTour": 76900000,
+    "NgayKhoiHanh": "2024-10-25",
+    "ThoiGian": "10 ngày 9 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 15,
+    "HinhAnh": [
+      "/images/tours/tour20.1.jpg",
+      "/images/tours/tour20.2.jpg",
+      "/images/tours/tour20.3.jpg",
+      "/images/tours/tour20.4.jpg"
+    ],
+    "MoTa": "<p>Đắm chìm vào không gian hùng vĩ, tinh khôi như ở một thế giới khác. New Zealand sẽ quyến rũ bạn bằng những dãy núi tuyết, sông băng và những thảo nguyên xanh bát ngát.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Làng Hobbiton (Đảo Bắc):</strong> Khám phá trường quay ngoài trời tuyệt đẹp của bom tấn 'Chúa tể những chiếc nhẫn' với những ngôi nhà nhỏ xinh đục trong quả đồi xanh mướt.</li><li><strong>Rotorua:</strong> Chiêm ngưỡng các mạch nước phun địa nhiệt kỳ thú, ngâm mình trong bùn khoáng nóng và tìm hiểu văn hóa của thổ dân Maori với điệu múa Haka mạnh mẽ.</li><li><strong>Sông băng Franz Josef (Đảo Nam):</strong> Trải nghiệm ngồi trực thăng ngắm dòng sông băng khổng lồ từ trên cao và dạo bước trên những dải băng vĩnh cửu.</li><li><strong>Hồ Tekapo:</strong> Ngắm nhìn mặt hồ màu xanh ngọc bích lấp lánh và nhà thờ Good Shepherd nhỏ bé đơn độc giữa thảo nguyên bao la.</li></ul>",
+    "ChuDe": "Tour Châu Úc",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Thiên đường nghỉ dưỡng Phú Quốc",
+    "MaTour": "TD0021",
+    "GiaTour": 5990000,
+    "NgayKhoiHanh": "2024-05-18",
+    "ThoiGian": "3 ngày 2 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 40,
+    "HinhAnh": [
+      "/images/tours/tour21.1.jpg",
+      "/images/tours/tour21.2.jpg",
+      "/images/tours/tour21.3.jpg",
+      "/images/tours/tour21.4.jpg",
+      "/images/tours/tour21.5.jpg",
+      "/images/tours/tour21.6.jpg",
+      "/images/tours/tour21.7.jpg"
+    ],
+    "MoTa": "<p>Tạm gác lại âu lo, tự thưởng cho mình một kỳ nghỉ tuyệt vời tại Đảo Ngọc Phú Quốc - nơi sở hữu những bãi biển lọt top đẹp nhất hành tinh và tổ hợp giải trí quy mô đẳng cấp.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Cáp treo Hòn Thơm:</strong> Trải nghiệm tuyến cáp treo vượt biển dài nhất thế giới, ngắm trọn vẹn vẻ đẹp của quần đảo An Thới từ trên cao. Thỏa sức vui chơi tại công viên nước Aquatopia.</li><li><strong>Thành phố không ngủ Grand World:</strong> Lạc vào 'Venice thu nhỏ' giữa lòng Phú Quốc, đi thuyền Gondola trên dòng kênh đào và thưởng thức show diễn thực cảnh Tinh Hoa Việt Nam hoành tráng.</li><li><strong>Hoàng hôn Bãi Dài:</strong> Tận hưởng ly cocktail mát lạnh tại các Beach Club ven biển, ngắm nhìn mặt trời lặn đỏ rực nhuộm kín cả đại dương bao la.</li></ul><p>Tự do thưởng thức hải sản tươi rói tại chợ đêm Dinh Cậu: Nhum nướng mỡ hành, còi biên mai, gỏi cá trích...</p>",
+    "ChuDe": "Tour Trong Nước",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Khám phá di sản miền Trung: Đà Nẵng - Hội An - Huế",
+    "MaTour": "TD0022",
+    "GiaTour": 4500000,
+    "NgayKhoiHanh": "2024-06-10",
+    "ThoiGian": "4 ngày 3 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 35,
+    "HinhAnh": [
+      "/images/tours/tour22.1.jpg",
+      "/images/tours/tour22.2.jpg",
+      "/images/tours/tour22.3.jpg",
+      "/images/tours/tour22.4.jpg",
+      "/images/tours/tour22.5.jpg",
+      "/images/tours/tour22.6.jpg",
+      "/images/tours/tour22.7.jpg",
+      "/images/tours/tour22.8.jpg",
+      "/images/tours/tour22.9.jpg",
+      "/images/tours/tour22.10.jpg",
+      "/images/tours/tour22.11.jpg"
+    ],
+    "MoTa": "<p>Hành trình xuôi về miền Trung ruột thịt, chạm vào chuỗi di sản văn hóa thế giới và cảm nhận tình người nồng ấm. Chuyến đi mang đậm giá trị lịch sử và cảnh sắc hữu tình.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Đà Nẵng năng động:</strong> Tắm biển Mỹ Khê - top 6 bãi biển quyến rũ nhất hành tinh. Chinh phục Bà Nà Hills, dạo bước trên siêu phẩm Cầu Vàng được nâng đỡ bởi đôi bàn tay khổng lồ phủ rêu phong.</li><li><strong>Phố cổ Hội An:</strong> Sống chậm lại khi tản bộ qua những con phố lấp lánh ánh đèn lồng, đi thuyền thả hoa đăng trên sông Hoài và thưởng thức Cao Lầu, Mì Quảng ngon trứ danh.</li><li><strong>Cố đô Huế:</strong> Tham quan Đại Nội hoành tráng, viếng chùa Thiên Mụ linh thiêng và lắng nghe Ca Huế trên dòng sông Hương thơ mộng. Thưởng thức nghệ thuật ẩm thực cung đình Huế tinh tế.</li></ul>",
+    "ChuDe": "Tour Trong Nước",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Tây Bắc mùa lúa chín: Sapa - Mù Cang Chải",
+    "MaTour": "TD0023",
+    "GiaTour": 6200000,
+    "NgayKhoiHanh": "2024-09-20",
+    "ThoiGian": "5 ngày 4 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 20,
+    "HinhAnh": [
+      "/images/tours/tour23.1.jpg",
+      "/images/tours/tour23.2.jpg",
+      "/images/tours/tour23.3.jpg",
+      "/images/tours/tour23.4.jpg",
+      "/images/tours/tour23.5.jpg",
+      "/images/tours/tour23.6.jpg"
+    ],
+    "MoTa": "<p>Xách ba lô lên và đi để thu vào tầm mắt bức tranh thiên nhiên kỳ vĩ nhất của vùng non cao Tây Bắc, nơi những thửa ruộng bậc thang trải dài nhuộm một màu vàng óng ả.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Sapa sương mù:</strong> Chinh phục đỉnh Fansipan - Nóc nhà Đông Dương bằng cáp treo, tản bộ khám phá bản Cát Cát của người H'Mông và check-in nhà thờ đá cổ kính giữa trung tâm thị trấn.</li><li><strong>Đèo Ô Quy Hồ:</strong> Trải nghiệm cảm giác mạnh khi đi qua một trong 'Tứ đại đỉnh đèo' hiểm trở và hùng vĩ nhất miền Bắc, săn mây bồng bềnh tuyệt đẹp.</li><li><strong>Mù Cang Chải:</strong> Chiêm ngưỡng đồi Mâm Xôi, đồi Móng Ngựa rực rỡ sắc vàng mùa lúa chín - di sản quốc gia ruộng bậc thang ngoạn mục nhất Việt Nam.</li></ul><p>Thưởng thức các món đặc sản núi rừng: lợn cắp nách, thắng cố, cá hồi Sapa và rượu táo mèo cay nồng.</p>",
+    "ChuDe": "Tour Trong Nước",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Hành trình Maldives - Tình yêu biển xanh",
+    "MaTour": "TD0024",
+    "GiaTour": 45900000,
+    "NgayKhoiHanh": "2024-07-08",
+    "ThoiGian": "5 ngày 4 đêm",
+    "NoiKhoiHanh": "TP. Hồ Chí Minh",
+    "SoCho": 10,
+    "HinhAnh": [
+      "/images/tours/tour24.1.jpg",
+      "/images/tours/tour24.2.jpg",
+      "/images/tours/tour24.3.jpg",
+      "/images/tours/tour24.4.jpg"
+    ],
+    "MoTa": "<p>Tự thưởng cho bản thân một chuyến du lịch siêu sang tại quốc đảo Maldives, nơi được mệnh danh là 'chuỗi ngọc trai của Ấn Độ Dương'. Thiên đường nghỉ dưỡng cho giới thượng lưu và các cặp đôi trăng mật.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Water Villa đẳng cấp:</strong> Trải nghiệm ngủ tại các căn biệt thự nổi trên mặt nước tuyệt đẹp, với ban công có cầu thang bước thẳng xuống làn nước trong vắt nhìn thấy tận đáy.</li><li><strong>Lặn ngắm san hô (Snorkeling):</strong> Bơi lội cùng những đàn cá nhiều màu sắc, rùa biển và khám phá những rạn san hô nguyên sinh rực rỡ.</li><li><strong>Dùng bữa dưới đại dương:</strong> Nâng ly champagne và thưởng thức bữa tối tại nhà hàng dưới biển độc đáo, ngắm nhìn đàn cá mập và cá đuối bơi lội ngay trên đầu.</li><li><strong>Ngắm cá heo:</strong> Đi du thuyền truyền thống Dhoni đón hoàng hôn và xem những chú cá heo vui nhộn nhảy múa trên mặt sóng.</li></ul>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Còn chỗ"
+  },
+  {
+    "TenTour": "Vương quốc Bhutan - Quốc gia hạnh phúc nhất",
+    "MaTour": "TD0025",
+    "GiaTour": 52000000,
+    "NgayKhoiHanh": "2024-10-12",
+    "ThoiGian": "6 ngày 5 đêm",
+    "NoiKhoiHanh": "Hà Nội",
+    "SoCho": 15,
+    "HinhAnh": [
+      "/images/tours/tour25.1.jpg",
+      "/images/tours/tour25.2.jpg",
+      "/images/tours/tour25.3.jpg",
+      "/images/tours/tour25.4.jpg"
+    ],
+    "MoTa": "<p>Hành trình tìm về sự bình yên trong tâm hồn tại Vương quốc Bhutan - nơi con người sống hài hòa với thiên nhiên và chỉ số Hạnh Phúc Quốc Gia (GNH) được xem trọng hơn GDP.</p><p>🌟 <strong>Điểm nhấn hành trình:</strong></p><ul><li><strong>Tu viện Tiger's Nest (Taktsang Palphug):</strong> Chinh phục con đường núi hiểm trở để đến với tu viện linh thiêng nhất Bhutan, nằm cheo leo trên vách đá dựng đứng cao hơn 3000m so với mực nước biển.</li><li><strong>Pháo đài Punakha Dzong:</strong> Chiêm ngưỡng kiến trúc tráng lệ của một trong những pháo đài đẹp nhất Bhutan, nằm giữa hai dòng sông Pho Chhu và Mo Chhu êm đềm.</li><li><strong>Đại Phật Dordenma (Thimphu):</strong> Cầu bình an dưới chân bức tượng Phật Thích Ca bằng đồng mạ vàng khổng lồ, phóng tầm mắt ngắm nhìn toàn cảnh thung lũng Thimphu thanh bình.</li></ul><p>Cảm nhận không khí trong vắt, tĩnh lặng, khoác lên mình trang phục truyền thống Gho (nam) và Kira (nữ) trải nghiệm đời sống của người dân địa phương.</p>",
+    "ChuDe": "Tour Châu Á",
+    "TrangThai": "Sắp khởi hành"
+  }
+
+]

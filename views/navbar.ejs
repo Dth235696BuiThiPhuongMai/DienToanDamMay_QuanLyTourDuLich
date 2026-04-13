@@ -1,0 +1,227 @@
+<style>
+    /* CSS cho Mega Menu */
+    .nav-item.mega-menu-item {
+        position: static;
+        /* Quan trọng: Giúp menu bung full width */
+    }
+
+    .mega-menu-dropdown {
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0 0 15px 15px;
+        padding: 30px;
+    }
+
+    /* Style cho Tab Nước ngoài / Trong nước */
+    .mega-menu-tabs .nav-link {
+        color: #333;
+        font-weight: 600;
+        border-radius: 0;
+        padding-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .mega-menu-tabs .nav-link.active {
+        background-color: transparent;
+        color: #0d6efd;
+        /* Màu xanh dương Bootstrap */
+        border-bottom: 2px solid #0d6efd;
+    }
+
+    .mega-menu-list a {
+        color: #555;
+        text-decoration: none;
+        display: block;
+        padding: 8px 0;
+        font-size: 0.95rem;
+    }
+
+    .mega-menu-list a:hover {
+        color: #0d6efd;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary fs-3" href="/">
+            <i class="bi bi-airplane-engines-fill"></i> 14pm Travel
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item dropdown mega-menu-item">
+                    <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside"> Điểm đến
+                    </a>
+                    <div class="dropdown-menu mega-menu-dropdown shadow border-0">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-2 border-end">
+                                    <div class="nav flex-column nav-pills mega-menu-tabs" role="tablist">
+                                        <button class="nav-link active text-start" data-bs-toggle="pill"
+                                            data-bs-target="#tab-nuocngoai" type="button" role="tab">NƯỚC NGOÀI</button>
+                                        <button class="nav-link text-start" data-bs-toggle="pill"
+                                            data-bs-target="#tab-trongnuoc" type="button" role="tab">TRONG NƯỚC</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 ps-4">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="tab-nuocngoai" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h6 class="fw-bold text-uppercase mb-3">Châu Á</h6>
+                                                    <div class="mega-menu-list">
+                                                        <a href="/tour/loc?chude=Thái Lan">Thái Lan</a>
+                                                        <a href="/tour/loc?chude=Singapore">Singapore</a>
+                                                        <a href="/tour/loc?chude=Trung Quốc">Trung Quốc</a>
+                                                        <a href="/tour/loc?chude=Nhật Bản">Nhật Bản</a>
+                                                        <a href="/tour/loc?chude=Hàn Quốc">Hàn Quốc</a>
+                                                        <a href="/tour/loc?chau=Châu Á" class="fw-bold mt-2">Xem tất cả &rarr;</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="fw-bold text-uppercase mb-3">Châu Âu</h6>
+                                                    <div class="mega-menu-list">
+                                                        <a href="/tour/loc?chude=Pháp">Pháp</a>
+                                                        <a href="/tour/loc?chude=Tây Ban Nha">Tây Ban Nha</a>
+                                                        <a href="/tour/loc?chude=Thụy Sĩ">Thụy Sĩ</a>
+                                                        <a href="/tour/loc?chude=Ý">Ý</a>
+                                                        <a href="/tour/loc?chau=Châu Âu" class="fw-bold mt-2">Xem tất cả &rarr;</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="fw-bold text-uppercase mb-3">Châu Mỹ</h6>
+                                                    <div class="mega-menu-list">
+                                                        <a href="/tour/loc?chude=Mỹ">Mỹ</a>
+                                                        <a href="/tour/loc?chude=Canada">Canada</a>
+                                                        <a href="/tour/loc?chude=Argentina">Argentina</a>
+                                                        <a href="/tour/loc?chau=Châu Mỹ" class="fw-bold mt-2">Xem tất cả &rarr;</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab-trongnuoc" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h6 class="fw-bold text-uppercase mb-3">Miền Bắc</h6>
+                                                    <div class="mega-menu-list">
+                                                        <a href="/tour/loc?chude=Hà Nội">Hà Nội</a>
+                                                        <a href="/tour/loc?chude=Sapa">Sapa</a>
+                                                        <a href="/tour/loc?chude=Hạ Long">Vịnh Hạ Long</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="fw-bold text-uppercase mb-3">Miền Trung</h6>
+                                                    <div class="mega-menu-list">
+                                                        <a href="/tour/loc?chude=Đà Nẵng">Đà Nẵng</a>
+                                                        <a href="/tour/loc?chude=Nha Trang">Nha Trang</a>
+                                                        <a href="/tour/loc?chude=Đà Lạt">Đà Lạt</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="fw-bold text-uppercase mb-3">Miền Nam</h6>
+                                                    <div class="mega-menu-list">
+                                                        <a href="/tour/loc?chude=Phú Quốc">Phú Quốc</a>
+                                                        <a href="/tour/loc?chude=Miền Tây">Miền Tây</a>
+                                                        <a href="/tour/loc?chude=Côn Đảo">Côn Đảo</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark d-flex align-items-center gap-1" href="#"
+                        id="chuyenMucDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-grid-3x3-gap"></i> Chuyên mục
+                    </a>
+                    <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="chuyenMucDropdown">
+                        <li>
+                            <a class="dropdown-item py-2" href="/tours?sort=popular">
+                                <i class="bi bi-star-fill text-warning me-2"></i>Tour được yêu thích nhất
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item py-2" href="/tours?sort=price_asc">
+                                <i class="bi bi-sort-up text-primary me-2"></i>Giá: Thấp đến Cao
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2" href="/tours?sort=price_desc">
+                                <i class="bi bi-sort-down text-danger me-2"></i>Giá: Cao xuống Thấp
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item py-2" href="/tours?sort=duration">
+                                <i class="bi bi-calendar-range text-success me-2"></i>Sắp xếp theo số ngày
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto align-items-center gap-2">
+                <% if(typeof session !== 'undefined' && session && session.User) { %>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="/datve">
+                            <% if(session.User.QuyenHan === "admin") { %>
+                                <i class="bi bi-clipboard-check"></i> Quản lý đặt vé
+                            <% } else { %>
+                                <i class="bi bi-ticket-perforated"></i> Vé của tôi
+                            <% } %>
+                        </a>
+                    </li>
+
+                    <% if(session.User.QuyenHan === "admin") { %>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger fw-bold" href="/admin">
+                                <i class="bi bi-gear"></i> Quản lý hệ thống
+                            </a>
+                        </li>
+                    <% } %>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-primary" href="#" data-bs-toggle="dropdown">
+                            Chào, <%= session.User.HoVaTen %>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
+                            <li>
+                                <a class="dropdown-item text-danger" href="/auth/dangxuat">
+                                    <i class="bi bi-power me-2"></i>Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                <% } else { %>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="/auth/dangky">Đăng ký</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary rounded-pill px-4" href="/auth/dangnhap">Đăng nhập</a>
+                    </li>
+                <% } %>
+            </ul>
+
+            <form action="/tour/loc" method="GET" class="d-flex align-items-center mb-0 ms-lg-3 mt-3 mt-lg-0">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Tìm kiếm tên tour..." required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</nav>

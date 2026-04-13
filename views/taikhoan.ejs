@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <title>
+        <%= title %> - Quản lý Tài khoản
+    </title>
+</head>
+
+<body>
+    <div class="container">
+        <%- include('navbar') %>
+
+            <div class="card mt-3">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">
+                        <%= title %>
+                    </h5>
+                </div>
+                <div class="card-body table-responsive">
+                    <%- message %>
+
+                        <a href="/taikhoan/them" class="btn btn-primary mb-3"><i class="bi bi-person-plus"></i> Thêm mới
+                            tài khoản</a>
+
+                        <table class="table table-bordered table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th width="5%">#</th>
+                                    <th>Họ và tên</th>
+                                    <th>Tên đăng nhập</th>
+                                    <th>Email</th>
+                                    <th class="text-center">Quyền hạn</th>
+                                    <th class="text-center">Trạng thái</th>
+                                    <th width="5%" class="text-center">Sửa</th>
+                                    <th width="5%" class="text-center">Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(typeof taikhoan !=='undefined' && taikhoan.length> 0) { %>
+                                    <% var stt=1; %>
+                                        <% taikhoan.forEach(tk=> { %>
+                                            <tr>
+                                                <td>
+                                                    <%= stt++ %>
+                                                </td>
+                                                <td>
+                                                    <strong>
+                                                        <%= tk.HoVaTen %>
+                                                    </strong>
+                                                    <% if(tk.HinhAnh) { %>
+                                                        <br><small class="text-muted">Ảnh: <%= tk.HinhAnh %></small>
+                                                        <% } %>
+                                                </td>
+                                                <td><code><%= tk.TenDangNhap %></code></td>
+                                                <td>
+                                                    <%= tk.Email %>
+                                                </td>
+                                                <td class="text-center">
+                                                    <% if(tk.QuyenHan==1) { %>
+                                                        <span class="badge bg-danger">Quản trị</span>
+                                                        <% } else { %>
+                                                            <span class="badge bg-info text-dark">Thành viên</span>
+                                                            <% } %>
+                                                </td>
+                                                <td class="text-center">
+                                                    <% if(tk.KichHoat==1) { %>
+                                                        <i class="bi bi-check-circle-fill text-success"
+                                                            title="Đang hoạt động"></i>
+                                                        <% } else { %>
+                                                            <i class="bi bi-x-circle-fill text-danger"
+                                                                title="Đã khóa"></i>
+                                                            <% } %>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="/taikhoan/sua/<%= tk._id %>"
+                                                        class="btn btn-sm btn-outline-warning"><i
+                                                            class="bi bi-pencil-square"></i></a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="/taikhoan/xoa/<%= tk._id %>"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        onclick="return confirm('Xóa tài khoản <%= tk.HoVaTen %>?');">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <% }); %>
+                                                <% } else { %>
+                                                    <tr>
+                                                        <td colspan="8" class="text-center italic">Danh sách trống</td>
+                                                    </tr>
+                                                    <% } %>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+
+            <%- include('footer') %>
+    </div>
+
+    <%- include('javascript') %>
+</body>
+
+</html>
