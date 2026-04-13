@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 var express = require('express');
 var router = express.Router();
-const Tour = require('../models/Tour');
+const Tour = require('../models/tour');
 const DanhGia = require('../models/danhgia');
 
 // Hàm tải ảnh xịn sò
