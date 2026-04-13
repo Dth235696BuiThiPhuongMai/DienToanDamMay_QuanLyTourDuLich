@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Tour = require('../models/tour');
+const Tour = require('../models/Tour');
 
 // Trang admin
 router.get('/', async (req, res) => {

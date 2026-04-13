@@ -1,9 +1,8 @@
 require('dotenv').config();
 
-
 const nodemailer = require('nodemailer');
 
-// Cấu hình "con thoi" gửi thư
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -19,68 +18,6 @@ var session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 var path = require('path');
-const http = require('http');
-const { Server } = require('socket.io');
-const server = http.createServer(app); 
-const io = new Server(server);
-
-const clientSockets = {};
-
-// 1. CẤU HÌNH SOCKET.IO LẮNG NGHE KHÁCH HÀNG
-io.on('connection', (socket) => {
-    console.log('Có một khách hàng vừa kết nối:', socket.id);
-
-    // Khi khách hàng bấm thanh toán, Frontend sẽ gửi mã đơn hàng lên đây
-    socket.on('join_booking', (bookingId) => {
-        clientSockets[bookingId] = socket.id; // Ghi nhớ: Đơn hàng A đang ở trình duyệt này
-        console.log(`Đơn hàng ${bookingId} đang chờ ở socket ${socket.id}`);
-    });
-
-    socket.on('disconnect', () => {
-        console.log('Khách hàng đã ngắt kết nối:', socket.id);
-    });
-});
-
-// 2. API KHI BẠN BẤM "XÁC NHẬN" TỪ EMAIL
-app.get('/api/approve', (req, res) => {
-    const bookingId = req.query.id; // Lấy mã đơn hàng từ link email
-
-    // --> Chỗ này bạn viết code Update Database thành "Đã duyệt" nhé <--
-
-    // Tìm lại xem trình duyệt của khách hàng đó là ai để báo tin vui
-    const socketId = clientSockets[bookingId];
-    if (socketId) {
-        // Bắn sự kiện 'booking_result' về ĐÚNG màn hình của khách đó
-        io.to(socketId).emit('booking_result', {
-            status: 'success',
-            message: 'Tuyệt vời! Đơn hàng của bạn đã được xác nhận.'
-        });
-
-        // Bắn xong thì xóa bộ nhớ cho nhẹ
-        delete clientSockets[bookingId];
-    }
-
-    res.send('Bạn đã PHÊ DUYỆT thành công! Khách hàng đã nhận được thông báo.');
-});
-
-// 3. API KHI BẠN BẤM "TỪ CHỐI" TỪ EMAIL
-app.get('/api/reject', (req, res) => {
-    const bookingId = req.query.id;
-
-    // --> Chỗ này viết code Update Database thành "Từ chối" <--
-
-    const socketId = clientSockets[bookingId];
-    if (socketId) {
-        // Bắn tin buồn về cho khách
-        io.to(socketId).emit('booking_result', {
-            status: 'failed',
-            message: 'Rất tiếc, tour đã hết chỗ hoặc có lỗi xảy ra.'
-        });
-        delete clientSockets[bookingId];
-    }
-
-    res.send('Bạn đã TỪ CHỐI đơn hàng.');
-});
 
 // --- BƯỚC 1: KHAI BÁO MODEL TÀI KHOẢN ---
 var TaiKhoan = require('./models/taikhoan');
@@ -186,7 +123,7 @@ app.get('/auth/google/callback',
             HoVaTen: req.user.HoVaTen,
             Email: req.user.Email
         };
-        
+
         // Quan trọng: Đợi session lưu xong rồi mới Redirect về trang chủ
         req.session.save((err) => {
             if (err) console.log(err);
@@ -212,6 +149,6 @@ app.use('/datve', datveRouter);
 app.use('/admin', adminRouter);
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`🚀 Server is running at http://127.0.0.1:${PORT}`);
 });

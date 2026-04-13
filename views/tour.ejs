@@ -106,97 +106,74 @@
                                         <i class="bi bi-sort-down text-primary"></i> Sắp xếp theo
                                     </button>
                                     <ul class="dropdown-menu shadow border-0">
-                                        <% let currentSVal=(typeof sVal !=='undefined' ) ? sVal : '' ; let
-                                            searchParam=(typeof searchVal !=='undefined' && searchVal) ?
-                                            `&search=${searchVal}` : '' ; %>
-                                            <li>
-                                                <a class="dropdown-item <%= currentSVal === 'price_asc' ? 'active' : '' %>"
-                                                    href="?page=1&sort=price_asc<%= searchParam %>">Giá tăng dần</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item <%= currentSVal === 'price_desc' ? 'active' : '' %>"
-                                                    href="?page=1&sort=price_desc<%= searchParam %>">Giá giảm dần</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item <%= currentSVal === 'popular' ? 'active' : '' %>"
-                                                    href="?page=1&sort=popular<%= searchParam %>">Đánh giá cao nhất</a>
-                                            </li>
+                                        <% let sVal=(typeof currentSort !=='undefined' ) ? currentSort : '' ; %>
+                                            <li><a class="dropdown-item <%= sVal === 'price_asc' ? 'active' : '' %>"
+                                                    href="?page=1&sort=price_asc">Giá tăng dần</a></li>
+                                            <li><a class="dropdown-item <%= sVal === 'price_desc' ? 'active' : '' %>"
+                                                    href="?page=1&sort=price_desc">Giá giảm dần</a></li>
+                                            <li><a class="dropdown-item <%= sVal === 'popular' ? 'active' : '' %>"
+                                                    href="?page=1&sort=popular">Đánh giá cao nhất</a></li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="table-responsive">
-                                <% if (typeof message !=='undefined' && message) { %>
-                                    <div class="alert alert-info d-flex align-items-center shadow-sm" role="alert">
-                                        <i class="bi bi-info-circle-fill me-2"></i>
-                                        <div>
-                                            <%= message %>
-                                        </div>
-                                    </div>
-                                    <% } %>
-                                        <table class="table table-hover table-middle">
-
-                                            <thead class="table-light">
-                                                <tr>
-                                                    <th>Tour</th>
-                                                    <th class="text-center">Giá</th>
-                                                    <th class="text-center">Thời gian</th>
-                                                    <th class="text-end">Thao tác</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                                <% tours.forEach((item)=> { %>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <img src="<%= Array.isArray(item.HinhAnh) ? item.HinhAnh[0] : item.HinhAnh %>"
-                                                                    class="tour-img me-3">
-                                                                <div>
-                                                                    <a href="/tours/chitiet/<%= item._id %>"
-                                                                        class="text-decoration-none fw-bold text-dark d-block text-truncate"
-                                                                        style="max-width: 250px;">
-                                                                        <%= item.TenTour %>
-                                                                    </a>
-                                                                    <small class="text-muted">
-                                                                        <%= item.MaTour %>
-                                                                    </small>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-center text-danger fw-bold">
-                                                            <%= item.GiaTour.toLocaleString('vi-VN') %>đ
-                                                        </td>
-                                                        <td class="text-center small text-muted">
-                                                            <%= item.ThoiGian %>
-                                                        </td>
-                                                        <td class="text-end">
+                                <table class="table table-hover table-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Tour</th>
+                                            <th class="text-center">Giá</th>
+                                            <th class="text-center">Thời gian</th>
+                                            <th class="text-end">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% tours.forEach((item)=> { %>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="<%= Array.isArray(item.HinhAnh) ? item.HinhAnh[0] : item.HinhAnh %>"
+                                                            class="tour-img me-3">
+                                                        <div>
                                                             <a href="/tours/chitiet/<%= item._id %>"
-                                                                class="btn btn-sm btn-outline-primary">
-                                                                <i class="bi bi-eye"></i>
+                                                                class="text-decoration-none fw-bold text-dark d-block text-truncate"
+                                                                style="max-width: 250px;">
+                                                                <%= item.TenTour %>
                                                             </a>
-
-                                                            <% if (typeof session !=='undefined' &&
-                                                                session.Role==='admin' ) { %>
-                                                                <a href="/tour/sua/<%= item._id %>"
-                                                                    class="btn btn-sm btn-warning">
-                                                                    <i class="bi bi-pencil"></i>
-                                                                </a>
-
-                                                                <a href="/tour/xoa/<%= item._id %>"
-                                                                    class="btn btn-sm btn-danger"
-                                                                    onclick="return confirm('Xóa tour này?')">
-                                                                    <i class="bi bi-trash"></i>
-                                                                </a>
-                                                                <% } %>
-                                                        </td>
-                                                    </tr>
-                                                    <% }) %>
-                                            </tbody>
-                                        </table>
+                                                            <small class="text-muted">
+                                                                <%= item.MaTour %>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center text-danger fw-bold">
+                                                    <%= item.GiaTour.toLocaleString('vi-VN') %>đ
+                                                </td>
+                                                <td class="text-center small text-muted">
+                                                    <%= item.ThoiGian %>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="/tours/chitiet/<%= item._id %>"
+                                                        class="btn btn-sm btn-outline-primary"><i
+                                                            class="bi bi-eye"></i></a>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
                             </div>
 
-
+                            <nav class="mt-4">
+                                <ul class="pagination pagination-sm justify-content-center">
+                                    <% for(let i=1; i <=totalPages; i++) { %>
+                                        <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                                            <a class="page-link" href="?page=<%= i %><%= sVal ? '&sort='+sVal : '' %>">
+                                                <%= i %>
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>

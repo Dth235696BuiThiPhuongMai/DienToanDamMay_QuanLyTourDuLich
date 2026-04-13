@@ -131,22 +131,7 @@
                     </div>
 
                     <form action="/datve/them/<%= tour._id %>" method="POST">
-                        <div class="booking-section">
-                            <% if (typeof session !=="undefined" && session.User) { %>
-                                <% if (session.User.QuyenHan==='admin' ) { %>
-                                    <button type="button" class="btn btn-secondary w-100" disabled>
-                                        <i class="bi bi-shield-lock"></i> Tài khoản Admin không dùng để đặt vé
-                                    </button>
-                                    <% } else { %>
-                                        <form action="/datve/them/<%= tour._id %>" method="POST">
-                                            <button type="submit" class="btn btn-primary w-100">Xác nhận đặt vé</button>
-                                        </form>
-                                        <% } %>
-                                            <% } else { %>
-                                                <a href="/auth/dangnhap" class="btn btn-warning w-100">Đăng nhập để đặt
-                                                    vé</a>
-                                                <% } %>
-                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Xác nhận đặt vé</button>
                     </form>
                 </div>
             </div>

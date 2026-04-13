@@ -36,7 +36,7 @@
 
                     <hr>
 
-                    <form id="formDatVe" action="/datve/them/<%= tour._id %>" method="POST" class="needs-validation">
+                    <form action="/datve/them/<%= tour._id %>" method="POST" class="needs-validation">
                         <div class="mb-3">
                             <label for="HoTen" class="form-label fw-bold">Họ và tên người đặt</label>
                             <input type="text" class="form-control" id="HoTen" name="HoTen"
@@ -76,154 +76,80 @@
                         </div>
 
                         <button type="button" class="btn btn-success btn-lg w-100 fw-bold shadow-sm"
-                            onclick="moBangXacNhan()">
+                            onclick="showPreview()">
                             <i class="bi bi-cart-plus me-2"></i>TIẾN HÀNH ĐẶT VÉ
                         </button>
 
-                        <div class="modal fade" id="modalXacNhan" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content border-0 shadow">
+                                <div class="modal-content">
                                     <div class="modal-header bg-primary text-white">
-                                        <h5 class="modal-title"><i class="bi bi-info-circle me-2"></i>Xác Nhận Đơn Hàng
-                                        </h5>
-                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <h5 class="modal-title">Xác nhận thông tin đặt tour</h5>
+                                        <button type="button" class="btn-close btn-close-white"
+                                            data-bs-dismiss="modal"></button>
                                     </div>
-                                    <div class="modal-body p-4">
-                                        <div class="mb-3">
-                                            <label class="text-muted small uppercase">Tên tour:</label>
-                                            <p class="fw-bold text-primary mb-0">
+                                    <div class="modal-body fs-6">
+                                        <p>Tour: <strong class="text-primary">
                                                 <%= tour.TenTour %>
-                                            </p>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-6">
-                                                <label class="text-muted small">Người đặt:</label>
-                                                <p class="fw-bold mb-0" id="showTen"></p>
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="text-muted small">Số khách:</label>
-                                                <p class="fw-bold mb-0" id="showSoNguoi"></p>
-                                            </div>
-                                        </div>
-                                        <div class="p-3 bg-light rounded text-center">
-                                            <label class="text-muted small d-block">TỔNG TIỀN THANH TOÁN:</label>
-                                            <h3 class="text-danger fw-bolder mb-0" id="showTongTien"></h3>
+                                            </strong></p>
+                                        <p>Người đặt: <strong id="preHoTen"></strong></p>
+                                        <p>Số người: <strong id="preSoNguoi"></strong></p>
+                                        <hr>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="fs-5">Tổng thanh toán:</span>
+                                            <span class="fs-4 fw-bold text-danger" id="preTongTien"></span>
                                         </div>
                                     </div>
-                                    <div class="modal-footer bg-light" id="khuVucNutBam">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Để em
-                                            xem lại</button>
-                                        <button type="submit" id="btnThanhToan" class="btn btn-success px-4 fw-bold">XÁC
-                                            NHẬN & THANH TOÁN</button>
-                                    </div>
-
-                                    <div id="manHinhCho"
-                                        style="display: none; width: 100%; text-align: center; padding: 15px;">
-                                        <h5 id="thongBao" class="text-warning fw-bold mb-3">Đang gửi yêu cầu... Bấy bi
-                                            giữ nguyên màn hình chờ admin duyệt nhé!</h5>
-                                        <div class="spinner-border text-warning" role="status" id="spinnerIcon"
-                                            style="width: 3rem; height: 3rem;"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quay
+                                            lại</button>
+                                        <button type="submit" class="btn btn-success fw-bold">THANH TOÁN NGAY</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </form>
+                </div>
+            </div>
+            <%- include('footer') %>
+    </div>
+    <%- include('javascript') %>
 
-                        <script>
-                            function moBangXacNhan() {
-                                // Lấy dữ liệu từ các ô nhập liệu
-                                const ten = document.getElementById('HoTen').value;
-                                const sdt = document.getElementById('DienThoai').value;
-                                const soNguoi = document.getElementById('soNguoi').value;
-                                const tongTien = document.getElementById('hienTongTien').innerText;
+        <script>
+            // Hàm tính tiền tự động
+            function tinhTien() {
+                const gia = Number('<%= tour.GiaTour %>') || 0;
+                let soNguoi = document.getElementById('soNguoi').value;
+                if (soNguoi < 1 || soNguoi === "") soNguoi = 1;
+                const tong = gia * soNguoi;
+                document.getElementById('hienTongTien').innerText = tong.toLocaleString('vi-VN');
+                document.getElementById('tongTienInput').value = tong;
+            }
 
-                                // Kiểm tra xem bấy bi có nhập thiếu tên hay sđt không
-                                if (!ten || !sdt) {
-                                    alert("Bấy bi ơi, nhập tên với số điện thoại giùm tui cái nè!");
-                                    return;
-                                }
+            // Hàm hiện Modal xem trước thông tin
+            function showPreview() {
+                // Lấy dữ liệu từ form
+                const hoTen = document.getElementById('HoTen').value;
+                const soNguoi = document.getElementById('soNguoi').value;
+                const tongTien = document.getElementById('hienTongTien').innerText;
 
-                                // Đổ dữ liệu vào bảng Modal
-                                document.getElementById('showTen').innerText = ten;
-                                document.getElementById('showSoNguoi').innerText = soNguoi + " người";
-                                document.getElementById('showTongTien').innerText = tongTien + " VNĐ";
+                if (!hoTen || !document.getElementById('DienThoai').value) {
+                    alert("Bấy bi nhập đầy đủ thông tin liên lạc đã nhé!");
+                    return;
+                }
 
-                                // Lệnh mở Modal của Bootstrap
-                                var myModal = new bootstrap.Modal(document.getElementById('modalXacNhan'));
-                                myModal.show();
-                            }
-                        </script>
-                        <script src="/socket.io/socket.io.js"></script>
+                // Gán vào Modal
+                document.getElementById('preHoTen').innerText = hoTen;
+                document.getElementById('preSoNguoi').innerText = soNguoi + " khách";
+                document.getElementById('preTongTien').innerText = tongTien + " VNĐ";
 
-                        <script>
-                            const socket = io(); // Mở kết nối Socket
-                            const formDatVe = document.getElementById('formDatVe');
+                // Hiện Modal
+                var myModal = new bootstrap.Modal(document.getElementById('previewModal'));
+                myModal.show();
+            }
 
-                            // Bắt sự kiện khi bấy bi bấm nút "XÁC NHẬN & THANH TOÁN" trong Modal
-                            formDatVe.addEventListener('submit', async function (e) {
-                                e.preventDefault(); // Chặn việc tự động chuyển trang
-
-                                // 1. Ẩn 2 cái nút bấm đi, hiện cái màn hình xoay xoay lên
-                                document.getElementById('khuVucNutBam').style.display = 'none';
-                                document.getElementById('manHinhCho').style.display = 'block';
-
-                                // 2. Gom dữ liệu từ form
-                                const formData = new FormData(formDatVe);
-                                const data = Object.fromEntries(formData.entries());
-
-                                try {
-                                    // 3. Bắn dữ liệu ngầm lên file xử lý Backend (Route POST)
-                                    const response = await fetch(formDatVe.action, {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify(data)
-                                    });
-                                    const result = await response.json(); // Nhận kết quả từ Backend trả về
-
-                                    if (result.success) {
-                                        // Nếu lưu Database thành công, báo cho Socket biết mã đơn hàng để nó ngồi "canh"
-                                        socket.emit('join_booking', result.bookingId);
-                                        document.getElementById('thongBao').innerText = "Đã gửi đơn! Đang chờ Quản lý duyệt...";
-                                    } else {
-                                        // Nếu bị lỗi (vd chưa đăng nhập) thì hiện thông báo và bật lại 2 nút bấm
-                                        alert(result.message);
-                                        document.getElementById('khuVucNutBam').style.display = 'flex';
-                                        document.getElementById('manHinhCho').style.display = 'none';
-                                    }
-                                } catch (error) {
-                                    console.error(error);
-                                    alert("Lỗi kết nối mạng rồi bấy bi ơi!");
-                                }
-                            });
-
-                            // 4. Lắng nghe tiếng "ting ting" từ Admin
-                            socket.on('booking_result', (data) => {
-                                const thongBao = document.getElementById('thongBao');
-                                const spinner = document.getElementById('spinnerIcon');
-
-                                spinner.style.display = 'none'; // Có kết quả rồi thì tắt icon xoay xoay đi
-
-                                if (data.status === 'success') {
-                                    // Đổi chữ thành màu xanh, báo thành công
-                                    thongBao.innerText = "Tuyệt vời! Đơn hàng của bạn đã được admin xác nhận!";
-                                    thongBao.className = "text-success fw-bold";
-
-                                    // Đợi 2 giây cho khách đọc chữ rồi tự động chuyển về trang danh sách vé
-                                    setTimeout(() => {
-                                        window.location.href = '/datve';
-                                    }, 2000);
-                                } else {
-                                    // Đổi chữ thành màu đỏ, báo thất bại
-                                    thongBao.innerText = "Rất tiếc! Đơn hàng đã bị từ chối (có thể do hết chỗ).";
-                                    thongBao.className = "text-danger fw-bold";
-
-                                    // Hiện lại khu vực nút bấm, nhưng ẩn nút Thanh Toán đi, chỉ chừa nút "Đóng"
-                                    document.getElementById('khuVucNutBam').style.display = 'flex';
-                                    document.getElementById('btnThanhToan').style.display = 'none';
-                                }
-                            });
-                        </script>
+            window.onload = tinhTien;
+        </script>
 </body>
 
 </html>

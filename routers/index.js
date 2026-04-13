@@ -5,7 +5,7 @@ const DanhGia = require('../models/danhgia');
 const DatVe = require('../models/datve');
 const nodemailer = require('nodemailer');
 
-
+// 1. Cấu hình gửi mail
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -40,69 +40,33 @@ router.get('/', async (req, res) => {
     } catch (err) { res.redirect('/error'); }
 });
 
-// 4. LỌC TOUR (Đã gắn não siêu to khổng lồ)
-router.get('/tour/loc', async (req, res) => {
-    try {
-        const diemDen = req.query.chude;     
-        const chauLuc = req.query.chau;      
-        const tuKhoaTimKiem = req.query.q;   
-
-        let query = {};
-        let tuKhoaHienThi = ''; 
-
-        if (chauLuc) {
-            // Tra từ điển khổng lồ ở trên
-            const danhSachTuKhoa = TU_DIEN_CHAU_LUC[chauLuc] || chauLuc;
-            
-            query = { TenTour: { $regex: danhSachTuKhoa, $options: 'i' } }; 
-            tuKhoaHienThi = chauLuc;
-
-        } else if (diemDen) {
-            query = { TenTour: { $regex: diemDen, $options: 'i' } };
-            tuKhoaHienThi = diemDen;
-        } else if (tuKhoaTimKiem) {
-            query = { TenTour: { $regex: tuKhoaTimKiem, $options: 'i' } };
-            tuKhoaHienThi = tuKhoaTimKiem;
-        }
-
-        const tours = await Tour.find(query).sort({ _id: -1 });
-        
-        res.render('tour', { 
-            title: 'Kết quả tìm kiếm: ' + (tuKhoaHienThi || 'Tất cả'),
-            tours: tours,
-            tuKhoaTimKiem: tuKhoaHienThi,
-            session: req.session 
-        });
-    } catch (err) {
-        console.error("Lỗi lọc tour:", err);
-        res.redirect('/error');
-    }
-});
 
 router.get('/tours', async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = 9;
+        const skip = (page - 1) * limit;
         const sortType = req.query.sort || '';
         let sortOption = { MaTour: 1 };
-
         if (sortType === 'popular') sortOption = { DanhGia: -1, LuotDanhGia: -1 };
         else if (sortType === 'price_asc') sortOption = { GiaTour: 1 };
         else if (sortType === 'price_desc') sortOption = { GiaTour: -1 };
 
-        const tours = await Tour.find().sort(sortOption);
-
+        const paginatedTours = await Tour.find().sort(sortOption).skip(skip).limit(limit);
         const favoriteTours = await Tour.find().sort({ DanhGia: -1 }).limit(5);
+        const totalTours = await Tour.countDocuments();
 
         res.render('tour', {
             title: 'Tất cả các Tour du lịch',
-            tours: tours,
+            tours: paginatedTours,
             favTours: favoriteTours,
+            currentPage: page,
+            totalPages: Math.ceil(totalTours / limit),
+            currentSort: sortType,
             session: req.session,
-            currentSort: sortType
+            tuKhoaTimKiem: ''
         });
-
-    } catch (error) {
-        res.redirect('/error');
-    }
+    } catch (error) { res.redirect('/error'); }
 });
 
 
