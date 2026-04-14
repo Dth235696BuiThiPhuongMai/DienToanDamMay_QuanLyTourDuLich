@@ -165,7 +165,7 @@ router.get('/xoa/:id', async (req, res) => {
         res.redirect('/error');
     }
 
-
+    
 });
 
 router.get('/loc', async (req, res) => {
@@ -235,11 +235,11 @@ router.get('/loc', async (req, res) => {
         res.status(500).send("Lỗi filter");
     }
 });
-// 5. ĐÁNH GIÁ (Bản nâng cấp tính điểm trung bình)
+
 router.post('/danhgia/:id', async (req, res) => {
-    if (!req.session || !req.session.User) {
-        return res.send("<script>alert('Bấy bi phải đăng nhập mới đánh giá được nha!'); window.location.href='/auth/dangnhap';</script>");
-    }
+    if (!req.session || !req.session.User || !req.session.User.id) {
+    return res.send("<script>alert('Vui lòng đăng nhập để đánh giá.'); window.location.href='/auth/dangnhap';</script>");
+}
 
     try {
         const idTour = req.params.id;
@@ -249,28 +249,40 @@ router.post('/danhgia/:id', async (req, res) => {
             return res.send("<script>alert('Không tìm thấy tour!'); window.history.back();</script>");
         }
 
+        // 👉 Check đã đánh giá chưa (tránh spam)
+        const daDanhGia = await DanhGia.findOne({
+            MaTour: tourHienTai.MaTour,
+            MaNguoiDung: req.session.User.id
+        });
+
+        if (daDanhGia) {
+            return res.send("<script>alert('Bấy bi đã đánh giá tour này rồi nha!'); window.history.back();</script>");
+        }
+
         const danhGiaMoi = {
             MaTour: tourHienTai.MaTour,
-            MaNguoiDung: req.session.User.id || req.session.User._id,
+            MaNguoiDung: req.session.User.id,
             NguoiDanhGia: req.session.User.HoVaTen,
-            DiemSo: Number(req.body.DiemSo), // Số sao người dùng chọn (1-5)
+            DiemSo: Number(req.body.DiemSo),
             NoiDung: req.body.NoiDung,
             NgayDanhGia: new Date()
         };
 
-        // Bước 1: Lưu đánh giá mới
+        // Bước 1: Lưu đánh giá
         await DanhGia.create(danhGiaMoi);
 
-        // Bước 2: Lấy tất cả đánh giá của TOUR NÀY để tính trung bình
+        // Bước 2: Tính lại trung bình
         const dsDanhGia = await DanhGia.find({ MaTour: tourHienTai.MaTour });
+
         const soLuong = dsDanhGia.length;
         const tongDiem = dsDanhGia.reduce((sum, dg) => sum + dg.DiemSo, 0);
-        const diemTrungBinh = (tongDiem / soLuong).toFixed(1); // Ví dụ: 4.5 sao
 
-        // Bước 3: Cập nhật vào bảng Tour (Cập nhật cả 2 trường)
+        const diemTrungBinh = Number((tongDiem / soLuong).toFixed(1));
+
+        // Bước 3: Update đúng field trong Tour
         await Tour.findByIdAndUpdate(idTour, {
-            DanhGia: soLuong,    // Đây là số lượt (hiện trong ngoặc đơn)
-            SoSao: diemTrungBinh // Đây là điểm sao (hiện ở cái badge vàng)
+            DanhGia: diemTrungBinh,   // ⭐ điểm trung bình
+            LuotDanhGia: soLuong      // 🔢 số lượt
         });
 
         return res.send("<script>alert('Cảm ơn bấy bi đã đánh giá!'); window.location.href=document.referrer;</script>");

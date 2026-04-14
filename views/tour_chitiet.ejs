@@ -98,15 +98,11 @@
                     </h1>
 
                     <div class="d-flex align-items-center mb-4">
-                        <div class="d-flex align-items-center mb-4">
-                            <span class="badge bg-warning text-dark fs-6 px-3 py-2">
-                                <i class="bi bi-star-fill me-1"></i>
-                                <%= tour.SoSao || '5.0' %>
-                            </span>
-                            <span class="text-muted ms-3 fs-6">
-                                (<%= tour.DanhGia || 0 %> đánh giá)
-                            </span>
-                        </div>
+                        <span class="badge bg-warning text-dark fs-6 px-3 py-2">
+                            <i class="bi bi-star-fill me-1"></i>
+                            <%= tour.DanhGia || '5.0' %>
+                        </span>
+                        <span class="text-muted ms-3 fs-6">(<%= tour.LuotDanhGia || 0 %> đánh giá)</span>
                     </div>
 
                     <div class="p-4 bg-light rounded-4 mb-4 border-start border-danger border-5">
@@ -185,7 +181,7 @@
             </div>
             <div class="row px-4">
                 <h4 class="fw-bold mb-4">Đánh giá khách hàng</h4>
-                <% if (session && session.User) { %>
+                <% if(session && session.User && session.User.id) { %>
                     <form action="/tour/danhgia/<%= tour._id %>" method="POST"
                         class="card p-4 border-0 bg-light rounded-4 shadow-sm">
                         <div class="mb-3">
@@ -199,17 +195,12 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <textarea name="NoiDung" class="form-control" rows="3"
-                                placeholder="Cảm nghĩ của bấy bi về tour này..."></textarea>
+                            <textarea name="NoiDung" class="form-control" rows="3" placeholder="Nhận xét..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary px-4 fw-bold rounded-pill">Gửi đánh giá</button>
+                        <button type="submit" class="btn btn-primary px-4">Gửi đánh giá</button>
                     </form>
                     <% } else { %>
-                        <div class="alert alert-warning rounded-4 shadow-sm border-0">
-                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                            Vui lòng <a href="/auth/dangnhap" class="fw-bold text-decoration-none">đăng nhập</a> để để
-                            lại đánh giá của bạn.
-                        </div>
+                        <div class="alert alert-warning rounded-4">Vui lòng đăng nhập để đánh giá.</div>
                         <% } %>
             </div>
         </div>

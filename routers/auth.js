@@ -38,7 +38,7 @@ router.get('/dangnhap', async (req, res) => {
 // POST: Đăng nhập (CHO PHÉP ĐĂNG NHẬP BẰNG TÊN HOẶC EMAIL)
 router.post('/dangnhap', async (req, res) => {
     // Kiểm tra xem đã đăng nhập chưa bằng biến session.User mới
-    if (req.session.User) {
+    if(req.session.User) {
         return res.redirect('/');
     }
 
@@ -46,28 +46,27 @@ router.post('/dangnhap', async (req, res) => {
         const inputDangNhap = req.body.TenDangNhap; // Lấy dữ liệu khách nhập (có thể là tên, có thể là email)
 
         // CHỖ NÀY LÀ ĐIỂM NHẤN NÈ: Tìm bằng $or (hoặc Tên hoặc Email)
-        var taikhoan = await TaiKhoan.findOne({
+        var taikhoan = await TaiKhoan.findOne({ 
             $or: [
                 { TenDangNhap: inputDangNhap },
                 { Email: inputDangNhap }
             ]
         }).exec();
-
-        if (taikhoan) {
-            if (bcrypt.compareSync(req.body.MatKhau, taikhoan.MatKhau)) {
-                if (taikhoan.KichHoat == 0) {
+        
+        if(taikhoan) {
+            if(bcrypt.compareSync(req.body.MatKhau, taikhoan.MatKhau)) {
+                if(taikhoan.KichHoat == 0) {
                     // TÀI KHOẢN BỊ KHÓA
                     return res.send("<script>alert('Tài khoản của bấy bi đã bị khóa rồi nha!'); window.location.href='/auth/dangnhap';</script>");
                 } else {
                     // Đăng ký session theo cấu trúc CHUẨN (User)
-                    // Trong auth.js (Login thường)
                     req.session.User = {
                         id: taikhoan._id,
                         HoVaTen: taikhoan.HoVaTen,
                         Email: taikhoan.Email,
-                        Role: taikhoan.QuyenHan // Thêm dòng này để bên EJS check được session.User.Role
+                        QuyenHan: taikhoan.QuyenHan
                     };
-
+                    
                     // Lưu session rồi mới nhảy trang cho chắc
                     req.session.save(() => {
                         res.redirect('/');
