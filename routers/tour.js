@@ -30,9 +30,6 @@ async function taiAnhVeMay(url, tenFile) {
             .on('error', e => reject(e));
     });
 }
-
-// 1. DANH SÁCH TOUR (Đã fix lỗi phân trang)
-// 1. DANH SÁCH TOUR (Đã fix lỗi phân trang, tìm kiếm và sắp xếp)
 router.get('/', async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
@@ -178,7 +175,7 @@ router.get('/chitiet/:id', async (req, res) => {
     } catch (error) { res.redirect('/tour'); }
 });
 
-router.get('/tour/loc', async (req, res) => {
+router.get('/loc', async (req, res) => {
     try {
         const keyword = (req.query.q || req.query.keyword || '').trim();
         const continent = req.query.continent || '';
@@ -241,53 +238,51 @@ router.get('/tour/loc', async (req, res) => {
         res.redirect('/error');
     }
 });
-
-// 5. ĐÁNH GIÁ
-// 5. ĐÁNH GIÁ
+// routers/tour.js
 router.post('/danhgia/:id', async (req, res) => {
-    // 1. Kiểm tra xem bấy bi đã đăng nhập chưa
     if (!req.session.User) {
-        return res.send("<script>alert('Bấy bi phải đăng nhập thì mới được đánh giá nha!'); window.location.href='/auth/dangnhap';</script>");
+        return res.send("<script>alert('Bấy bi phải đăng nhập nha!'); window.location.href='/auth/dangnhap';</script>");
     }
 
     try {
-        // SỬA CHỖ NÀY: Lấy đúng req.params.id theo URL
         const idTour = req.params.id;
         const idTaiKhoan = req.session.User.id;
-
-        // Phải tìm cái Tour đó ra để lấy được cái "MaTour" (Ví dụ: TD0001)
         const tourHienTai = await Tour.findById(idTour);
-        if (!tourHienTai) return res.send("<script>alert('Lỗi: Không tìm thấy tour này!'); window.history.back();</script>");
 
-        // 2. ĐÂY LÀ CHỐT CHẶN
-        const daDanhGiaChua = await DanhGia.findOne({
-            MaTour: tourHienTai.MaTour, // Sửa thành MaTour cho khớp với hàm GET chi tiết ở trên
-            TaiKhoanID: idTaiKhoan
-        });
+        if (!tourHienTai) return res.send("<script>alert('Không tìm thấy tour!'); window.history.back();</script>");
 
+        // 1. Chặn đánh giá trùng
+        const daDanhGiaChua = await DanhGia.findOne({ MaTour: tourHienTai.MaTour, TaiKhoanID: idTaiKhoan });
         if (daDanhGiaChua) {
-            return res.send("<script>alert('Bấy bi đã đánh giá tour này rồi nha! Mỗi người chỉ được 1 lần thôi nè hihi.'); window.history.back();</script>");
+            return res.send("<script>alert('Bấy bi đánh giá tour này rồi nè!'); window.history.back();</script>");
         }
 
-        // 3. NẾU CHƯA ĐÁNH GIÁ -> LƯU VÀO DATABASE
-        const danhGiaMoi = {
-            MaTour: tourHienTai.MaTour, // Lưu bằng MaTour luôn
+        // 2. Lưu đánh giá mới
+        await DanhGia.create({
+            MaTour: tourHienTai.MaTour,
             TaiKhoanID: idTaiKhoan,
-            // Thêm tên người dùng nếu Model Đánh giá của bạn có lưu để hiển thị ra web
             TenNguoiDung: req.session.User.HoVaTen,
             NoiDung: req.body.NoiDung,
-            DiemSao: req.body.DiemSao,
-            NgayDanhGia: new Date() // Đổi thành NgayDanhGia cho khớp với hàm sort ở trên luôn
-        };
-        await DanhGia.create(danhGiaMoi);
+            DiemSao: Number(req.body.DiemSao),
+            NgayDanhGia: new Date()
+        });
 
-        return res.send("<script>alert('Cảm ơn bấy bi đã để lại đánh giá!'); window.history.back();</script>");
+        // 🔥 BƯỚC QUAN TRỌNG: Cập nhật lại điểm trung bình vào bảng Tour để Sort Popular
+        const tatCaDanhGia = await DanhGia.find({ MaTour: tourHienTai.MaTour });
+        const tongDiem = tatCaDanhGia.reduce((sum, dg) => sum + dg.DiemSao, 0);
+        const diemTrungBinh = (tongDiem / tatCaDanhGia.length).toFixed(1);
+
+        await Tour.findByIdAndUpdate(idTour, {
+            DanhGia: diemTrungBinh,      // Cập nhật điểm để sort
+            LuotDanhGia: tatCaDanhGia.length // Cập nhật số lượt để sort
+        });
+
+        return res.send("<script>alert('Cảm ơn bấy bi đã đánh giá!'); window.history.back();</script>");
 
     } catch (error) {
-        console.log("Lỗi gửi đánh giá: ", error);
-        return res.send("<script>alert('Lỗi hệ thống mất tiêu rồi bấy bi ơi!'); window.history.back();</script>");
+        console.log(error);
+        return res.send("<script>alert('Lỗi hệ thống rồi!'); window.history.back();</script>");
     }
 });
-
 
 module.exports = router;
