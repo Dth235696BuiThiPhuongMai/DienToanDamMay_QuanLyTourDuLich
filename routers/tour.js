@@ -165,7 +165,7 @@ router.get('/xoa/:id', async (req, res) => {
         res.redirect('/error');
     }
 
-    
+
 });
 
 router.get('/loc', async (req, res) => {
@@ -235,56 +235,49 @@ router.get('/loc', async (req, res) => {
         res.status(500).send("Lỗi filter");
     }
 });
-
+// 5. ĐÁNH GIÁ (Bản nâng cấp tính điểm trung bình)
 router.post('/danhgia/:id', async (req, res) => {
+    if (!req.session || !req.session.User) {
+        return res.send("<script>alert('Bấy bi phải đăng nhập mới đánh giá được nha!'); window.location.href='/auth/dangnhap';</script>");
+    }
+
     try {
-        if (!req.session.User) {
-            return res.send("<script>alert('Vui lòng đăng nhập!'); window.history.back();</script>");
+        const idTour = req.params.id;
+        const tourHienTai = await Tour.findById(idTour);
+
+        if (!tourHienTai) {
+            return res.send("<script>alert('Không tìm thấy tour!'); window.history.back();</script>");
         }
 
-        const tour = await Tour.findById(req.params.id);
-        if (!tour) return res.send("Không tìm thấy tour");
-
-        const userId = req.session.User._id;
-
-        const existed = await DanhGia.findOne({
-            MaTour: tour.MaTour,
-            MaNguoiDung: userId
-        });
-
-        if (existed) {
-            return res.send("<script>alert('Bạn đã đánh giá rồi!'); window.history.back();</script>");
-        }
-
-        const noiDung = req.body.NoiDung;
-        const diemSo = Number(req.body.DiemSo);
-
-        if (!noiDung || diemSo < 1 || diemSo > 5) {
-            return res.send("Dữ liệu không hợp lệ");
-        }
-
-        await DanhGia.create({
-            MaTour: tour.MaTour,
-            MaNguoiDung: userId,
+        const danhGiaMoi = {
+            MaTour: tourHienTai.MaTour,
+            MaNguoiDung: req.session.User.id || req.session.User._id,
             NguoiDanhGia: req.session.User.HoVaTen,
-            NoiDung: noiDung,
-            DiemSo: diemSo
+            DiemSo: Number(req.body.DiemSo), // Số sao người dùng chọn (1-5)
+            NoiDung: req.body.NoiDung,
+            NgayDanhGia: new Date()
+        };
+
+        // Bước 1: Lưu đánh giá mới
+        await DanhGia.create(danhGiaMoi);
+
+        // Bước 2: Lấy tất cả đánh giá của TOUR NÀY để tính trung bình
+        const dsDanhGia = await DanhGia.find({ MaTour: tourHienTai.MaTour });
+        const soLuong = dsDanhGia.length;
+        const tongDiem = dsDanhGia.reduce((sum, dg) => sum + dg.DiemSo, 0);
+        const diemTrungBinh = (tongDiem / soLuong).toFixed(1); // Ví dụ: 4.5 sao
+
+        // Bước 3: Cập nhật vào bảng Tour (Cập nhật cả 2 trường)
+        await Tour.findByIdAndUpdate(idTour, {
+            DanhGia: soLuong,    // Đây là số lượt (hiện trong ngoặc đơn)
+            SoSao: diemTrungBinh // Đây là điểm sao (hiện ở cái badge vàng)
         });
 
-        const all = await DanhGia.find({ MaTour: tour.MaTour });
+        return res.send("<script>alert('Cảm ơn bấy bi đã đánh giá!'); window.location.href=document.referrer;</script>");
 
-        const avg = all.reduce((s, r) => s + r.DiemSo, 0) / all.length;
-
-        await Tour.findByIdAndUpdate(req.params.id, {
-            DanhGia: Number(avg.toFixed(1)),
-            LuotDanhGia: all.length
-        });
-
-        res.send("<script>alert('Cảm ơn bạn 💖'); window.history.back();</script>");
-
-    } catch (err) {
-        console.log(err);
-        res.status(500).send("Lỗi đánh giá");
+    } catch (error) {
+        console.log("Lỗi: ", error);
+        return res.send(`<script>alert('Lỗi: ${error.message}'); window.history.back();</script>`);
     }
 });
 
