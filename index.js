@@ -6,8 +6,8 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.EMAIL_USER, // Lấy từ .env nè
-        pass: process.env.EMAIL_PASS  // Lấy từ .env nè
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
 });
 
@@ -19,7 +19,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 var path = require('path');
 
-// --- BƯỚC 1: KHAI BÁO MODEL TÀI KHOẢN ---
+
 var TaiKhoan = require('./models/taikhoan');
 
 var indexRouter = require('./routers/index');
@@ -65,11 +65,11 @@ app.use((req, res, next) => {
     next();
 });
 
-// Khởi động Passport (Nên đặt trước Router)
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-// --- BƯỚC 2: CẤU HÌNH PASSPORT GOOGLE (ĐÃ NÂNG CẤP LƯU DATABASE) ---
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -110,21 +110,21 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
-// --- BƯỚC 3: CÁC ĐƯỜNG DẪN ĐĂNG NHẬP ---
+
 app.get('/auth/google',
     passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/auth/dangnhap' }),
     (req, res) => {
-        // Lưu thông tin user vào session để các trang khác xài được
+
         req.session.User = {
             id: req.user._id,
             HoVaTen: req.user.HoVaTen,
             Email: req.user.Email
         };
 
-        // Quan trọng: Đợi session lưu xong rồi mới Redirect về trang chủ
+
         req.session.save((err) => {
             if (err) console.log(err);
             res.redirect('/');
@@ -140,7 +140,30 @@ app.get('/auth/dangxuat', (req, res) => {
         });
     });
 });
+// ✅ API lấy danh sách tour (cho WinForms)
+const Tour = require('./models/tour');
 
+app.get('/api/tours', async (req, res) => {
+    try {
+        let tours = await Tour.find();
+
+        // 🔥 Fix ảnh (nếu là đường dẫn tương đối)
+        tours = tours.map(t => {
+            return {
+                ...t._doc,
+                HinhAnh: t.HinhAnh?.map(img =>
+                    img.startsWith('http')
+                        ? img
+                        : `https://one4pm-tour.onrender.com${img}`
+                )
+            };
+        });
+
+        res.json(tours);
+    } catch (err) {
+        res.status(500).json({ error: 'Lỗi server' });
+    }
+});
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/taikhoan', taikhoanRouter);

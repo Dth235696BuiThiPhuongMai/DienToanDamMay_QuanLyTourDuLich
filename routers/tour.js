@@ -89,11 +89,11 @@ router.post('/them', async (req, res) => {
         const lastTour = await Tour.findOne().sort({ MaTour: -1 }); // Tìm tour có mã lớn nhất
         let MaTuSinh = "TD0001";
         if (lastTour && lastTour.MaTour) {
-            const currentNumber = parseInt(lastTour.MaTour.replace("TD", "")); // Lấy phần số
-            MaTuSinh = "TD" + String(currentNumber + 1).padStart(4, '0'); // Tăng 1 và bù số 0
+            const currentNumber = parseInt(lastTour.MaTour.replace("TD", ""));
+            MaTuSinh = "TD" + String(currentNumber + 1).padStart(4, '0');
         }
 
-        // --- BƯỚC 2: XỬ LÝ LƯU HÌNH VỀ MÁY ---
+
         let duongDanAnh = '/images/no-image.jpg';
         if (HinhAnh && HinhAnh.trim().startsWith('http')) {
             try {
@@ -165,7 +165,7 @@ router.get('/xoa/:id', async (req, res) => {
         res.redirect('/error');
     }
 
-    
+
 });
 
 router.get('/loc', async (req, res) => {
@@ -175,7 +175,7 @@ router.get('/loc', async (req, res) => {
 
         let query = null;
 
-        // 🔍 keyword
+
         if (keyword) {
             query = {
                 $or: [
@@ -186,7 +186,7 @@ router.get('/loc', async (req, res) => {
             };
         }
 
-        // 🇻🇳 trong nước
+
         else if (continent === 'Trong nước') {
             query = {
                 NoiKhoiHanh: {
@@ -196,7 +196,6 @@ router.get('/loc', async (req, res) => {
             };
         }
 
-        // 🌍 châu lục
         else if (TU_DIEN_CHAU_LUC[continent]) {
             query = {
                 NoiKhoiHanh: {
@@ -238,8 +237,8 @@ router.get('/loc', async (req, res) => {
 
 router.post('/danhgia/:id', async (req, res) => {
     if (!req.session || !req.session.User || !req.session.User.id) {
-    return res.send("<script>alert('Vui lòng đăng nhập để đánh giá.'); window.location.href='/auth/dangnhap';</script>");
-}
+        return res.send("<script>alert('Vui lòng đăng nhập để đánh giá.'); window.location.href='/auth/dangnhap';</script>");
+    }
 
     try {
         const idTour = req.params.id;
@@ -249,7 +248,7 @@ router.post('/danhgia/:id', async (req, res) => {
             return res.send("<script>alert('Không tìm thấy tour!'); window.history.back();</script>");
         }
 
-        // 👉 Check đã đánh giá chưa (tránh spam)
+      
         const daDanhGia = await DanhGia.findOne({
             MaTour: tourHienTai.MaTour,
             MaNguoiDung: req.session.User.id
@@ -268,10 +267,10 @@ router.post('/danhgia/:id', async (req, res) => {
             NgayDanhGia: new Date()
         };
 
-        // Bước 1: Lưu đánh giá
+  
         await DanhGia.create(danhGiaMoi);
 
-        // Bước 2: Tính lại trung bình
+  
         const dsDanhGia = await DanhGia.find({ MaTour: tourHienTai.MaTour });
 
         const soLuong = dsDanhGia.length;
@@ -279,10 +278,10 @@ router.post('/danhgia/:id', async (req, res) => {
 
         const diemTrungBinh = Number((tongDiem / soLuong).toFixed(1));
 
-        // Bước 3: Update đúng field trong Tour
+     
         await Tour.findByIdAndUpdate(idTour, {
-            DanhGia: diemTrungBinh,   // ⭐ điểm trung bình
-            LuotDanhGia: soLuong      // 🔢 số lượt
+            DanhGia: diemTrungBinh,  
+            LuotDanhGia: soLuong    
         });
 
         return res.send("<script>alert('Cảm ơn bấy bi đã đánh giá!'); window.location.href=document.referrer;</script>");
