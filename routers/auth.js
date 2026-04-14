@@ -74,11 +74,11 @@ router.post('/dangnhap', async (req, res) => {
                 }
             } else {
                 // SAI MẬT KHẨU
-                return res.send("<script>alert('Sai mật khẩu mất tiêu rồi bấy bi ơi!'); window.location.href='/auth/dangnhap';</script>");
+                return res.send("<script>alert('Sai mật khẩu rồi!'); window.location.href='/auth/dangnhap';</script>");
             }
         } else {
             // KHÔNG TỒN TẠI (Đã cập nhật câu thông báo)
-            return res.send("<script>alert('Tên đăng nhập hoặc Email không tồn tại. Bấy bi kiểm tra lại nha!'); window.location.href='/auth/dangnhap';</script>");
+            return res.send("<script>alert('Tên đăng nhập hoặc Email không tồn tại. Vui lòng kiểm tra lại!'); window.location.href='/auth/dangnhap';</script>");
         }
     } catch (error) {
         // LỖI HỆ THỐNG
