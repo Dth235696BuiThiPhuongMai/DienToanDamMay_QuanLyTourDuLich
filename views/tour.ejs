@@ -163,17 +163,20 @@
                                 </table>
                             </div>
 
-                            <nav class="mt-4">
-                                <ul class="pagination pagination-sm justify-content-center">
-                                    <% for(let i=1; i <=totalPages; i++) { %>
-                                        <li class="page-item <%= currentPage === i ? 'active' : '' %>">
-                                            <a class="page-link" href="?page=<%= i %><%= sVal ? '&sort='+sVal : '' %>">
-                                                <%= i %>
-                                            </a>
-                                        </li>
-                                        <% } %>
-                                </ul>
-                            </nav>
+                            <% if (typeof totalPages !=='undefined' ) { %>
+                                <nav class="mt-4">
+                                    <ul class="pagination pagination-sm justify-content-center">
+                                        <% for(let i=1; i <=totalPages; i++) { %>
+                                            <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                                                <a class="page-link"
+                                                    href="?page=<%= i %><%= sVal ? '&sort=' + sVal : '' %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                                    </ul>
+                                </nav>
+                                <% } %>
                         </div>
                     </div>
                 </div>
@@ -185,7 +188,7 @@
                             <div class="list-group list-group-flush">
                                 <% if (typeof favTours !=='undefined' && favTours.length> 0) { %>
                                     <% favTours.forEach(fav=> { %>
-                                        <a href="/tours/chitiet/<%= fav._id %>"
+                                        <a href="/tour/chitiet/<%= fav._id %>"
                                             class="list-group-item fav-tour-item px-0 py-3">
                                             <div class="row g-0 align-items-center">
                                                 <div class="col-4">

@@ -164,125 +164,132 @@ router.get('/xoa/:id', async (req, res) => {
         console.log(err);
         res.redirect('/error');
     }
-});
-// 4. CHI TIẾT TOUR
-router.get('/chitiet/:id', async (req, res) => {
-    try {
-        const tour = await Tour.findById(req.params.id);
-        if (!tour) return res.redirect('/tour');
-        const danhgias = await DanhGia.find({ MaTour: tour.MaTour }).sort({ NgayDanhGia: -1 });
-        res.render('tour_chitiet', { tour, danhgias, session: req.session });
-    } catch (error) { res.redirect('/tour'); }
+
+    
 });
 
 router.get('/loc', async (req, res) => {
     try {
-        const keyword = (req.query.q || req.query.keyword || '').trim();
-        const continent = req.query.continent || '';
-        let query = {};
+        const keyword = (req.query.q || '').trim();
+        const continent = (req.query.continent || '').trim();
 
-        // 1. Nếu có từ khóa tìm kiếm thủ công
+        let query = null;
+
+        // 🔍 keyword
         if (keyword) {
             query = {
                 $or: [
                     { TenTour: { $regex: keyword, $options: 'i' } },
                     { MoTa: { $regex: keyword, $options: 'i' } },
-                    { DiemDen: { $regex: keyword, $options: 'i' } } // 🔥 thêm dòng này
+                    { NoiKhoiHanh: { $regex: keyword, $options: 'i' } }
                 ]
             };
         }
-        // 2. Nếu chọn lọc theo Châu lục
-        else if (continent && TU_DIEN_CHAU_LUC[continent]) {
-            const pattern = TU_DIEN_CHAU_LUC[continent];
-            query = {
-                $or: [
-                    { TenTour: { $regex: pattern, $options: 'i' } },
-                    { DiemDen: { $regex: pattern, $options: 'i' } } // 🔥 thêm dòng này
-                ]
-            };
-        }
-        // 3. Nếu chọn Trong nước
+
+        // 🇻🇳 trong nước
         else if (continent === 'Trong nước') {
-            const trongNuoc = "Hà Nội|Đà Nẵng|Nha Trang|Phú Quốc|Huế|Hồ Chí Minh|Vịnh Hạ Long|Sapa|Đà Lạt";
             query = {
-                $or: [
-                    { TenTour: { $regex: trongNuoc, $options: 'i' } },
-                    { DiemDen: { $regex: trongNuoc, $options: 'i' } }
-                ]
+                NoiKhoiHanh: {
+                    $regex: "Hà Nội|Đà Nẵng|Nha Trang|Phú Quốc|Huế|Sapa|Đà Lạt",
+                    $options: 'i'
+                }
             };
         }
 
-        // Thực hiện tìm kiếm
-        const tours = await Tour.find(query).sort({ _id: -1 });
-        const favoriteTours = await Tour.find().sort({ DanhGia: -1 }).limit(5);
-
-        // Chuẩn bị thông báo
-        let thongBao = null;
-        if (tours.length === 0) {
-            thongBao = `Huhu, không tìm thấy tour nào khớp với "${keyword || continent}" hết bấy bi ơi!`;
-        } else if (keyword || continent) {
-            thongBao = `Tìm thấy ${tours.length} tour cho bấy bi nè!`;
+        // 🌍 châu lục
+        else if (TU_DIEN_CHAU_LUC[continent]) {
+            query = {
+                NoiKhoiHanh: {
+                    $regex: TU_DIEN_CHAU_LUC[continent],
+                    $options: 'i'
+                }
+            };
         }
+
+        if (!query) {
+            return res.render('tour', {
+                tours: [],
+                favTours: [],
+                message: 'Chưa chọn điều kiện lọc 😗',
+                session: req.session
+            });
+        }
+
+        const tours = await Tour.find(query).sort({ _id: -1 });
+
+        const favTours = await Tour.find()
+            .sort({ DanhGia: -1 })
+            .limit(5);
 
         res.render('tour', {
-            title: 'Kết quả lọc',
-            tours: tours,
-            favTours: favoriteTours,
-            session: req.session,
-            message: thongBao, // Gửi thông báo sang EJS
-            currentSort: ''
+            tours,
+            favTours,
+            message: tours.length
+                ? `Tìm thấy ${tours.length} tour ✈️`
+                : 'Không tìm thấy tour 😢',
+            session: req.session
         });
 
     } catch (err) {
-        console.error(err);
-        res.redirect('/error');
+        console.log(err);
+        res.status(500).send("Lỗi filter");
     }
 });
-// routers/tour.js
+
 router.post('/danhgia/:id', async (req, res) => {
-    if (!req.session.User) {
-        return res.send("<script>alert('Bấy bi phải đăng nhập nha!'); window.location.href='/auth/dangnhap';</script>");
-    }
-
     try {
-        const idTour = req.params.id;
-        const idTaiKhoan = req.session.User.id;
-        const tourHienTai = await Tour.findById(idTour);
-
-        if (!tourHienTai) return res.send("<script>alert('Không tìm thấy tour!'); window.history.back();</script>");
-
-        // 1. Chặn đánh giá trùng
-        const daDanhGiaChua = await DanhGia.findOne({ MaTour: tourHienTai.MaTour, TaiKhoanID: idTaiKhoan });
-        if (daDanhGiaChua) {
-            return res.send("<script>alert('Bấy bi đánh giá tour này rồi nè!'); window.history.back();</script>");
+        if (!req.session.User) {
+            return res.send("<script>alert('Vui lòng đăng nhập!'); window.history.back();</script>");
         }
 
-        // 2. Lưu đánh giá mới
+        const tour = await Tour.findById(req.params.id);
+        if (!tour) return res.send("Không tìm thấy tour");
+
+        const userId = req.session.User._id;
+
+        const existed = await DanhGia.findOne({
+            MaTour: tour.MaTour,
+            MaNguoiDung: userId
+        });
+
+        if (existed) {
+            return res.send("<script>alert('Bạn đã đánh giá rồi!'); window.history.back();</script>");
+        }
+
+        const noiDung = req.body.NoiDung;
+        const diemSo = Number(req.body.DiemSo);
+
+        if (!noiDung || diemSo < 1 || diemSo > 5) {
+            return res.send("Dữ liệu không hợp lệ");
+        }
+
         await DanhGia.create({
-            MaTour: tourHienTai.MaTour,
-            TaiKhoanID: idTaiKhoan,
-            TenNguoiDung: req.session.User.HoVaTen,
-            NoiDung: req.body.NoiDung,
-            DiemSao: Number(req.body.DiemSao),
-            NgayDanhGia: new Date()
+            MaTour: tour.MaTour,
+            MaNguoiDung: userId,
+            NguoiDanhGia: req.session.User.HoVaTen,
+            NoiDung: noiDung,
+            DiemSo: diemSo
         });
 
-        // 🔥 BƯỚC QUAN TRỌNG: Cập nhật lại điểm trung bình vào bảng Tour để Sort Popular
-        const tatCaDanhGia = await DanhGia.find({ MaTour: tourHienTai.MaTour });
-        const tongDiem = tatCaDanhGia.reduce((sum, dg) => sum + dg.DiemSao, 0);
-        const diemTrungBinh = (tongDiem / tatCaDanhGia.length).toFixed(1);
+        const all = await DanhGia.find({ MaTour: tour.MaTour });
 
-        await Tour.findByIdAndUpdate(idTour, {
-            DanhGia: diemTrungBinh,      // Cập nhật điểm để sort
-            LuotDanhGia: tatCaDanhGia.length // Cập nhật số lượt để sort
+        const avg = all.reduce((s, r) => s + r.DiemSo, 0) / all.length;
+
+        await Tour.findByIdAndUpdate(req.params.id, {
+            DanhGia: Number(avg.toFixed(1)),
+            LuotDanhGia: all.length
         });
 
-        return res.send("<script>alert('Cảm ơn bấy bi đã đánh giá!'); window.history.back();</script>");
+        res.send("<script>alert('Cảm ơn bạn 💖'); window.history.back();</script>");
 
-    } catch (error) {
-        console.log(error);
-        return res.send("<script>alert('Lỗi hệ thống rồi!'); window.history.back();</script>");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Lỗi đánh giá");
     }
 });
+
+router.get('/success', (req, res) => res.render('success', { title: 'Thành công' }));
+router.get('/error', (req, res) => res.render('error', { title: 'Lỗi rồi!' }));
+
 
 module.exports = router;
