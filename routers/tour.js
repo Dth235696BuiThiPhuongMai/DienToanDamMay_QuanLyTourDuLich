@@ -169,7 +169,69 @@ router.get('/chitiet/:id', async (req, res) => {
     } catch (error) { res.redirect('/tour'); }
 });
 
+router.get('/tour/loc', async (req, res) => {
+    try {
+        const keyword = (req.query.q || req.query.keyword || '').trim();
+        const continent = req.query.continent || '';
+        let query = {};
 
+        // 1. Nếu có từ khóa tìm kiếm thủ công
+        if (keyword) {
+            query = {
+                $or: [
+                    { TenTour: { $regex: keyword, $options: 'i' } },
+                    { MoTa: { $regex: keyword, $options: 'i' } },
+                    { DiemDen: { $regex: keyword, $options: 'i' } } // 🔥 thêm dòng này
+                ]
+            };
+        }
+        // 2. Nếu chọn lọc theo Châu lục
+        else if (continent && TU_DIEN_CHAU_LUC[continent]) {
+            const pattern = TU_DIEN_CHAU_LUC[continent];
+            query = {
+                $or: [
+                    { TenTour: { $regex: pattern, $options: 'i' } },
+                    { DiemDen: { $regex: pattern, $options: 'i' } } // 🔥 thêm dòng này
+                ]
+            };
+        }
+        // 3. Nếu chọn Trong nước
+        else if (continent === 'Trong nước') {
+            const trongNuoc = "Hà Nội|Đà Nẵng|Nha Trang|Phú Quốc|Huế|Hồ Chí Minh|Vịnh Hạ Long|Sapa|Đà Lạt";
+            query = {
+                $or: [
+                    { TenTour: { $regex: trongNuoc, $options: 'i' } },
+                    { DiemDen: { $regex: trongNuoc, $options: 'i' } }
+                ]
+            };
+        }
+
+        // Thực hiện tìm kiếm
+        const tours = await Tour.find(query).sort({ _id: -1 });
+        const favoriteTours = await Tour.find().sort({ DanhGia: -1 }).limit(5);
+
+        // Chuẩn bị thông báo
+        let thongBao = null;
+        if (tours.length === 0) {
+            thongBao = `Huhu, không tìm thấy tour nào khớp với "${keyword || continent}" hết bấy bi ơi!`;
+        } else if (keyword || continent) {
+            thongBao = `Tìm thấy ${tours.length} tour cho bấy bi nè!`;
+        }
+
+        res.render('tour', {
+            title: 'Kết quả lọc',
+            tours: tours,
+            favTours: favoriteTours,
+            session: req.session,
+            message: thongBao, // Gửi thông báo sang EJS
+            currentSort: ''
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.redirect('/error');
+    }
+});
 
 // 5. ĐÁNH GIÁ
 // 5. ĐÁNH GIÁ

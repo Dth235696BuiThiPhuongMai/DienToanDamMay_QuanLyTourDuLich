@@ -40,44 +40,6 @@ router.get('/', async (req, res) => {
     } catch (err) { res.redirect('/error'); }
 });
 
-// 4. LỌC TOUR (Đã gắn não siêu to khổng lồ)
-router.get('/tour/loc', async (req, res) => {
-    try {
-        const diemDen = req.query.chude;     
-        const chauLuc = req.query.chau;      
-        const tuKhoaTimKiem = req.query.q;   
-
-        let query = {};
-        let tuKhoaHienThi = ''; 
-
-        if (chauLuc) {
-            // Tra từ điển khổng lồ ở trên
-            const danhSachTuKhoa = TU_DIEN_CHAU_LUC[chauLuc] || chauLuc;
-            
-            query = { TenTour: { $regex: danhSachTuKhoa, $options: 'i' } }; 
-            tuKhoaHienThi = chauLuc;
-
-        } else if (diemDen) {
-            query = { TenTour: { $regex: diemDen, $options: 'i' } };
-            tuKhoaHienThi = diemDen;
-        } else if (tuKhoaTimKiem) {
-            query = { TenTour: { $regex: tuKhoaTimKiem, $options: 'i' } };
-            tuKhoaHienThi = tuKhoaTimKiem;
-        }
-
-        const tours = await Tour.find(query).sort({ _id: -1 });
-        
-        res.render('tour', { 
-            title: 'Kết quả tìm kiếm: ' + (tuKhoaHienThi || 'Tất cả'),
-            tours: tours,
-            tuKhoaTimKiem: tuKhoaHienThi,
-            session: req.session 
-        });
-    } catch (err) {
-        console.error("Lỗi lọc tour:", err);
-        res.redirect('/error');
-    }
-});
 
 router.get('/tours', async (req, res) => {
     try {
