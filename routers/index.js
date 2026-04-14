@@ -14,14 +14,6 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const TU_DIEN_CHAU_LUC = {
-    "Châu Á": "Việt Nam|Thái Lan|Singapore|Malaysia|Indonesia|Bali|Philippines|Campuchia|Lào|Myanmar|Brunei|Đông Timor|Trung Quốc|Nhật Bản|Hàn Quốc|Triều Tiên|Đài Loan|Hồng Kông|Ma Cao|Ấn Độ|Nepal|Sri Lanka|Maldives|Bhutan|Pakistan|Bangladesh|Ả Rập|UAE|Dubai|Qatar|Saudi Arabia|Oman|Yemen|Iran|Iraq|Israel|Jordan|Lebanon|Syria|Thổ Nhĩ Kỳ|Kazakhstan|Uzbekistan|Mông Cổ",
-    "Châu Âu": "Anh|Pháp|Đức|Ý|Italia|Tây Ban Nha|Bồ Đào Nha|Hà Lan|Bỉ|Thụy Sĩ|Thụy Điển|Đan Mạch|Na Uy|Phần Lan|Nga|Hy Lạp|Áo|Séc|Hungary|Ba Lan|Slovakia|Slovenia|Croatia|Serbia|Romania|Bulgaria|Ukraina|Belarus|Lithuania|Latvia|Estonia|Ireland|Scotland|Wales|Vatican|Monaco|Iceland",
-    "Châu Mỹ": "Mỹ|Hoa Kỳ|USA|Canada|Mexico|Brazil|Argentina|Chile|Colombia|Peru|Venezuela|Ecuador|Bolivia|Paraguay|Uruguay|Cuba|Bahamas|Jamaica|Haiti|Dominica|Costa Rica|Panama|Guatemala|Honduras|Nicaragua|El Salvador|Puerto Rico|New York|Los Angeles|San Francisco|Las Vegas",
-    "Châu Úc": "Úc|Australia|New Zealand|Fiji|Papua New Guinea|Solomon|Vanuatu|Samoa|Tonga|Tuvalu|Kiribati|Micronesia|Palau|Marshall|Sydney|Melbourne",
-    "Châu Phi": "Ai Cập|Nam Phi|Morocco|Ma-rốc|Kenya|Nigeria|Madagascar|Ethiopia|Tanzania|Uganda|Ghana|Senegal|Cameroon|Bờ Biển Ngà|Mali|Zimbabwe|Zambia|Angola|Algeria|Libya|Sudan|Tunisia|Somalia|Rwanda"
-};
-
 // 2. Trang chủ
 router.get('/', async (req, res) => {
     try {
