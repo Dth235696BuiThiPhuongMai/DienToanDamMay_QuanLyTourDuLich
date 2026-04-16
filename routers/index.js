@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
         });
     } catch (err) { res.redirect('/error'); }
 });
-app.get('/api/tour/:maTour', async (req, res) => {
+router.get('/api/tour/:maTour', async (req, res) => {
     try {
         const tour = await Tour.findOne({ MaTour: req.params.maTour });
 
