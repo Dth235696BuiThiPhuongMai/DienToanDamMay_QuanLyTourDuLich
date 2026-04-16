@@ -31,8 +31,19 @@ router.get('/', async (req, res) => {
         });
     } catch (err) { res.redirect('/error'); }
 });
+app.get('/api/tour/:maTour', async (req, res) => {
+    try {
+        const tour = await Tour.findOne({ MaTour: req.params.maTour });
 
+        if (!tour) {
+            return res.status(404).json({ message: "Không tìm thấy tour" });
+        }
 
+        res.json(tour);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 router.get('/tours', async (req, res) => {
     try {
         const sortType = req.query.sort || '';

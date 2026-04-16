@@ -142,28 +142,6 @@ app.get('/auth/dangxuat', (req, res) => {
 });
 // ✅ API lấy danh sách tour (cho WinForms)
 const Tour = require('./models/tour');
-
-app.get('/api/tours', async (req, res) => {
-    try {
-        let tours = await Tour.find();
-
-        // 🔥 Fix ảnh (nếu là đường dẫn tương đối)
-        tours = tours.map(t => {
-            return {
-                ...t._doc,
-                HinhAnh: t.HinhAnh?.map(img =>
-                    img.startsWith('http')
-                        ? img
-                        : `https://one4pm-tour.onrender.com${img}`
-                )
-            };
-        });
-
-        res.json(tours);
-    } catch (err) {
-        res.status(500).json({ error: 'Lỗi server' });
-    }
-});
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/taikhoan', taikhoanRouter);
